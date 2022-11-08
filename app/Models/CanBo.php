@@ -6,13 +6,18 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class CanBo extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory;
+    use Notifiable;
+    use HasRoles;
 
     protected $table = 'can_bo';
-    
+
+    protected $guard_name = 'admin';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -53,4 +58,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function danhSachCanbo()
+    {
+        return $this->all();
+    }
+
+    public function thongtinCanbo($ma_canbo)
+    {
+        return $this->where('ma_canbo', $ma_canbo)->first();
+    }
 }

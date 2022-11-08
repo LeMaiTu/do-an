@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CanBo;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function __construct()
+    protected $canbo;
+
+    public function __construct(CanBo $canbo)
     {
-        
+        $this->canbo = $canbo;
     }
 
     public function index(){
@@ -26,7 +29,7 @@ class AdminController extends Controller
     }
 
     public function danhsachHoso(){
-        
+
         return view('pages.admin.danhsach_hoso');
     }
 

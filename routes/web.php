@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CanboHosoController;
+use App\Http\Controllers\CanboKhoController;
+use App\Http\Controllers\DangNhapController;
 use App\Http\Controllers\TrangChuController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,11 +18,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', [LoginController::class, 'index']);
-Route::get('/', [TrangChuController::class, 'index']);
+Route::get('/login', [DangNhapController::class, 'index'])->name('admins.login.index');
+Route::post('/login', [DangNhapController::class, 'login'])->name('admins.login');
+Route::get('/', [TrangChuController::class, 'index'])->name('home');
 
-
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'role:admin']], function() {
     Route::get('/', [AdminController::class, 'index'])
     ->name('admin.index');
     Route::get('/danhsach_canbo', [AdminController::class, 'danhSachCanBo'])
@@ -33,14 +35,12 @@ Route::group(['prefix' => 'admin'], function() {
     ->name('admin.danhmuc_loi');
 });
 
-
 Route::group(['prefix' => 'canbo_hoso'], function() {
-    Route::get('/', []);
+    Route::get('/', [CanboHosoController::class, 'index'])->name('cb_hoso.index');
 });
 
-
 Route::group(['prefix' => 'canbo_kho'], function() {
-    Route::get('/', []);
+    Route::get('/', [CanboKhoController::class, 'index'])->name('cb_kho.index');
 });
 
 
