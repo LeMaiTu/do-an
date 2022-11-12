@@ -46,6 +46,14 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+<<<<<<< HEAD
+=======
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+>>>>>>> ee85335e6a752fbb55183dc6deb45b762f031226
     ],
 
     /*
@@ -66,7 +74,11 @@ return [
     */
 
     'providers' => [
+<<<<<<< HEAD
         'users' => [
+=======
+        'admins' => [
+>>>>>>> ee85335e6a752fbb55183dc6deb45b762f031226
             'driver' => 'eloquent',
             'model' => App\Models\CanBo::class,
         ],

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # do-an
 =======
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
@@ -63,3 +64,18 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 >>>>>>> 6623983 (init project do-an)
+=======
+### ĐỒ ÁN - LÊ MAI TÚ - 17CT1
+
+## Đề Tài: Quản Lý Vi Phạm Hành Chính(Sở CSGT TP ĐN)
+
+## Giới Thiệu
+
+## Build src
+
+   1. composer install
+   2. cp .env.example .env
+   3. php artisan key:generate
+   4. php artisan migrate:fresh --seed
+   5. php artisan serve
+>>>>>>> ee85335e6a752fbb55183dc6deb45b762f031226
