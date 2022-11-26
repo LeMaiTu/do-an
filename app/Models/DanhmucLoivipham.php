@@ -2,12 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
-class DanhmucLoivipham
+class DanhmucLoivipham extends Model
 {
     use HasFactory;
 
@@ -22,10 +20,10 @@ class DanhmucLoivipham
         'ma_loi',
         'ten_loi',
         'nghi_dinh',
-        'chitie_nghidinh',
+        'chitiet_nghidinh',
         'loai_phuongtien',
-        'account',
-        'gioi_tinh',
+        'muc_phat',
+        'mo_ta',
     ];
 
 }

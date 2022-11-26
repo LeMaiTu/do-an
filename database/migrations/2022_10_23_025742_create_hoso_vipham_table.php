@@ -19,7 +19,7 @@ class CreateHoSoViPhamTable extends Migration
             $table->date('thoigian_lapbienban');
             $table->string('diadiem_lapbienban');
             $table->string('ma_canbo_lapbienban');
-            $table->string('ma_canbo_xuly_bienban');
+            $table->string('ma_canbo_xuly_hoso');
             $table->integer('cmnd_nguoivipham');
             $table->date('ngaynhap_hoso');
             $table->date('ngayxuly_hoso');
@@ -29,7 +29,7 @@ class CreateHoSoViPhamTable extends Migration
             $table->text('mo_ta')->nullable();
             $table->timestamps();
             $table->foreign('ma_canbo_lapbienban')->cascadeOnUpdate()->references('ma_canbo')->on('can_bo');
-            $table->foreign('ma_canbo_xuly_bienban')->cascadeOnUpdate()->references('ma_canbo')->on('can_bo');
+            $table->foreign('ma_canbo_xuly_hoso')->cascadeOnUpdate()->references('ma_canbo')->on('can_bo');
             $table->foreign('cmnd_nguoivipham')->cascadeOnUpdate()->references('cmnd')->on('nguoi_vipham');
         });
     }

@@ -22,13 +22,15 @@ class HosoVipham extends Model
         'thoigian_lapbienban',
         'diadiem_lapbienban',
         'ma_canbo_lapbienban',
-        'ma_canbo_xuly_bienban',
+        'ma_canbo_xuly_hoso',
         'cmnd_nguoivipham',
         'ngaynhap_hoso',
         'ngayxuly_hoso',
         'ngayhen_xuly',
         'thoihan_xuly',
         'tinhtrang_hoso',
+        'hinhanh_bienban',
         'mo_ta',
     ];
+
 }

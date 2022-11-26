@@ -17,10 +17,10 @@ class CreateDanhmucLoiviphamTable extends Migration
             $table->string('ma_loi')->primary();
             $table->string('ten_loi');
             $table->string('nghi_dinh');
-            $table->string('chitie_nghidinh');
+            $table->string('chitiet_nghidinh');
             $table->string('loai_phuongtien');
-            $table->string('account');
-            $table->text('gioi_tinh');
+            $table->string('muc_phat');
+            $table->text('mo_ta');
             $table->timestamps();
         });
     }

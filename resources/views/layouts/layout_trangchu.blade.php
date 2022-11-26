@@ -6,12 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {{--CSRF Token--}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', config('app.name', '@Master Layout'))</title>
+    <title>@yield('title', config('app.name'))</title>
 
-    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap/bootstrap-table.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/datapicker.css') }}" rel="stylesheet">
-	<link href="{{ asset('css/main.css') }}" rel="stylesheet">
-    
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -23,7 +26,18 @@
 					<span class="icon-bar"></span></button>
 				<a class="navbar-brand" href="#"><span>Tra Cứu Thông Tin Vi Phạm Hành Chính (Sở GTVT) </span> </a>
 				<ul class="nav navbar-top-links navbar-right">
+                </ul>
+            </div>
+        </div>
 	</nav>
     @yield('content')
+
+    <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    {{--    <script src="{{ asset('js/bootstrap.js') }}"></script>--}}
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ asset('js/html5shiv.min.js') }}"></script>
+    @yield('scripts')
 </body>
 </html>

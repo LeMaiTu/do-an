@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class DangNhapController extends Controller
 {
@@ -14,8 +13,8 @@ class DangNhapController extends Controller
 
     public function index()
     {
-        if (Auth::guard('admin')->check()) {
-            $user = Auth::guard('admin')->user();
+            if (auth('admin')->check()) {
+            $user = auth('admin')->user();
             switch ($user->role) {
                 case 'admin':
                     return redirect()->route('admin.index');
@@ -37,8 +36,9 @@ class DangNhapController extends Controller
 
         $credentials = $request->only(['account', 'password']);
 
-        if (Auth::guard('admin')->attempt($credentials)) {
-            $role = Auth::guard('admin')->user()->role;
+        if (auth('admin')->attempt($credentials)) {
+
+            $role = auth('admin')->user()->role;
 
             switch ($role) {
                 case 'admin':
@@ -51,5 +51,12 @@ class DangNhapController extends Controller
         }
 
         return redirect()->back()->withErrors(['password' => __('validation.custom.login_fail')]);
+    }
+
+    public function logout(Request $request){
+        $request->session()->invalidate();
+        auth('admin')->logout();
+        $request->session()->regenerateToken();
+        return redirect()->route('admins.login.index');
     }
 }

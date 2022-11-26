@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Ho_Chi_Minh',
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'vi',
 
     /*
     |--------------------------------------------------------------------------
@@ -161,11 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-<<<<<<< HEAD
-
-=======
         Spatie\Permission\PermissionServiceProvider::class,
->>>>>>> ee85335e6a752fbb55183dc6deb45b762f031226
         /*
          * Package Service Providers...
          */
@@ -178,11 +174,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-<<<<<<< HEAD
-
-=======
-        Spatie\Permission\PermissionServiceProvider::class,
->>>>>>> ee85335e6a752fbb55183dc6deb45b762f031226
     ],
 
     /*

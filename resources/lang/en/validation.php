@@ -133,10 +133,7 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
-<<<<<<< HEAD
-=======
         'login_fail' => 'Email address or password is incorrect.' //Địa chỉ email hoặc mật khẩu không chính xác.
->>>>>>> ee85335e6a752fbb55183dc6deb45b762f031226
     ],
 
     /*

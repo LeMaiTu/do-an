@@ -11,16 +11,21 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js');
+mix.copyDirectory([
+    'resources/assets/js/',
+], 'public/js');
 
 mix.styles([
-    'resources/css/styles/datepicker.css',
-    'resources/css/styles/datepicker3.css'
+    'resources/assets/css/styles/datepicker.css',
+    'resources/assets/css/styles/datepicker3.css'
 ], 'public/css/datapicker.css');
 
-mix.styles([
-    'resources/bootstrap/css/bootstrap.min.css',
-    'resources/bootstrap/css/bootstrap-theme.min.css',
-], 'public/css/bootstrap.css');
+mix.copyDirectory([
+    'resources/assets/bootstrap/css/',
+], 'public/css/bootstrap');
 
-mix.css('resources/css/styles/main.css', 'public/css/main.css');
+mix.copyDirectory([
+    'resources/assets/images/',
+], 'public/images');
+
+mix.css('resources/assets/css/styles/styles.css', 'public/css/style.css');

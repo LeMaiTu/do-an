@@ -6,15 +6,6 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-<<<<<<< HEAD
-
-class User extends Authenticatable
-{
-    use HasFactory, Notifiable;
-
-    protected $table = 'can_bo';
-    
-=======
 use Spatie\Permission\Traits\HasRoles;
 
 class CanBo extends Authenticatable
@@ -27,13 +18,15 @@ class CanBo extends Authenticatable
 
     protected $guard_name = 'admin';
 
->>>>>>> ee85335e6a752fbb55183dc6deb45b762f031226
+    protected $primaryKey = 'id';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
+        'id',
         'ma_canbo',
         'ten_canbo',
         'role',
@@ -48,7 +41,7 @@ class CanBo extends Authenticatable
         'sdt',
         'don_vi',
         'hinh_anh',
-        'mota',
+        'mo_ta',
     ];
 
     /**
@@ -60,6 +53,7 @@ class CanBo extends Authenticatable
         'password', 'remember_token',
     ];
 
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -68,8 +62,7 @@ class CanBo extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-<<<<<<< HEAD
-=======
+
 
     public function danhSachCanbo()
     {
@@ -80,5 +73,5 @@ class CanBo extends Authenticatable
     {
         return $this->where('ma_canbo', $ma_canbo)->first();
     }
->>>>>>> ee85335e6a752fbb55183dc6deb45b762f031226
+
 }

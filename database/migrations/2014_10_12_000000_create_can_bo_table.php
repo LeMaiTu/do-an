@@ -14,7 +14,8 @@ class CreateCanBoTable extends Migration
     public function up()
     {
         Schema::create('can_bo', function (Blueprint $table) {
-            $table->string('ma_canbo')->primary();
+            $table->id();
+            $table->string('ma_canbo')->unique();
             $table->string('ten_canbo');
             $table->string('role'); //ADMIN; CB_HOSO; CB_KHO; CB_LAPBIENBAN;
             $table->string('email')->unique();
@@ -29,7 +30,7 @@ class CreateCanBoTable extends Migration
             $table->string('sdt');
             $table->string('don_vi');
             $table->string('hinh_anh');
-            $table->string('mota');
+            $table->string('mo_ta');
             $table->rememberToken();
             $table->timestamps();
         });
