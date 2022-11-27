@@ -10,10 +10,11 @@
 
     <link href="{{ asset('css/bootstrap/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap/bootstrap-table.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bootstrap/font-awesome.min.css') }}" rel="stylesheet">
+
     <link href="{{ asset('css/datapicker.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>

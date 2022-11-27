@@ -5,93 +5,65 @@
 @section('content')
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
         <div class="panel-body">
-            <div class="btn btn-danger" style=" margin-bottom: 10px;">
-                Sao Chép Dữ Liệu
-            </div>
+{{--            <div class="btn btn-danger" style=" margin-bottom: 10px;">--}}
+{{--                Sao Chép Dữ Liệu--}}
+{{--            </div>--}}
             <div class="panel panel-default">
-                @if( count($hosoVipham) <= 0)
-                    <p class="panel-body text-center">Hồ sơ trống!</p>
-                @else
-                    @foreach($hosoVipham as $hoso)
-                        <div class="panel-heading text-bold">Hồ Sơ {{ $hoso->ma_hoso }}</div>
-                        <div class="panel-body">
-                            <div class="view-info">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="general-info">
-                                            <div class="row">
-                                                <div class="col-lg-6 col-xl-6">
-                                                    <table class="table m-0 table-responsive">
-                                                        <tbody>
-                                                        <tr>
-                                                            <th scope="row">Mã Hồ Sơ</th>
-                                                            <td>{{ $hoso->ma_hoso }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">Tên Hồ Sơ</th>
-                                                            <td>{{ $hoso->ten_hoso }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">Thời Gian Vi Phạm</th>
-                                                            <td>{{ date('d/m/Y', strtotime($hoso->thoigian_lapbienban)) }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">Địa Điểm Vi Phạm</th>
-                                                            <td>{{ $hoso->diadiem_lapbienban }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">Mã CB Lập Biên bản</th>
-                                                            <td>{{ $hoso->ma_canbo_lapbienban }}</td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <!-- end of table col-lg-6 -->
-                                                <div class="col-lg-6 col-xl-6">
-                                                    <table class="table table-responsive">
-                                                        <tbody>
-                                                        <tr>
-                                                            <th scope="row">Mã Người Vi Phạm</th>
-                                                            <td>{{ $hoso->cmnd_nguoivipham }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">Ngày Xử Lý Hồ Sơ</th>
-                                                            <td>{{ date('d/m/Y', strtotime($hoso->ngaynhap_hoso)) }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">Mã Cán Bộ Xử Lý Hồ Sơ</th>
-                                                            <td>{{ $hoso->ma_canbo_xuly_hoso }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">Tình Trạng Hồ Sơ</th>
-                                                            <td>
-                                                                @if($hoso->tinhtrang_hoso == 0)
-                                                                    0
-                                                                @else
-                                                                    1
-                                                                @endif
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">Hình Ảnh</th>
-                                                            <td><a href="#!">xuly111.jpg</a></td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <!-- end of table col-lg-6 -->
-                                            </div>
-                                            <!-- end of row -->
-                                        </div>
-                                        <!-- end of general info -->
-                                    </div>
-                                    <!-- end of col-lg-12 -->
-                                </div>
-                                <!-- end of row -->
-                            </div>
-                        </div>
-                    @endforeach
-                @endif
+                <div class="table-responsive table-scroll panel-body">
+                    <table class="table table-striped table-hover text-center" style="width:100%; max-width: 100%">
+                        <thead>
+                        <tr>
+                            <th class="text-center" style="width: 100px">Mã Hồ Sơ</th>
+                            <th class="text-center" style="width: 100px">Tên Hồ Sơ</th>
+                            <th class="text-center" style="width: 150px">Thời Gian Lập BB</th>
+                            <th class="text-center" style="width: 150px">Địa Điểm Lập BB</th>
+                            <th class="text-center" style="width: 150px">Mã CB Lập BB</th>
+                            <th class="text-center" style="width: 150px">Mã CB XLHS</th>
+                            <th class="text-center" style="width: 150px">CMND Nguoi Vi Pham</th>
+                            <th class="text-center" style="width: 150px">Ngày Nhập Hồ Sơ</th>
+                            <th class="text-center" style="width: 150px">Ngày Xử Lý Hồ Sơ</th>
+                            <th class="text-center" style="width: 150px">Ngày Hẹn Xử Lý</th>
+                            <th class="text-center" style="width: 150px">Thời Hạn Xử Lý</th>
+                            <th class="text-center" style="width: 100px">Tình Trạng</th>
+                            <th class="text-center" style="width: 150px">Mô Tả</th>
+                            <th class="text-center" style="width: 100px"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @if( count($hosoVipham) <= 0)
+                            <tr>
+                                <td colspan="14">
+                                    Hồ sơ trống!
+                                </td>
+                            </tr>
+                        @else
+                            @foreach($hosoVipham as $hoso)
+                                <tr>
+                                    <td style="width: 100px">{{ $hoso->ma_hoso }}</td>
+                                    <td style="width: 100px">{{ $hoso->ten_hoso }}</td>
+                                    <td style="width: 150px">{{ date('d/m/Y', strtotime($hoso->thoigian_lapbienban)) }}</td>
+                                    <td style="width: 150px">{{ $hoso->diadiem_lapbienban }}</td>
+                                    <td style="width: 150px">{{ $hoso->ma_canbo_lapbienban }}</td>
+                                    <td style="width: 150px">{{ $hoso->ma_canbo_xuly_hoso }}</td>
+                                    <td style="width: 150px">{{ $hoso->cmnd_nguoivipham }}</td>
+                                    <td style="width: 150px">{{ date('d/m/Y', strtotime($hoso->ngaynhap_hoso)) }}</td>
+                                    <td style="width: 150px">{{ $hoso->ngayxuly_hoso ? date('d/m/Y', strtotime($hoso->ngayxuly_hoso)): null }}</td>
+                                    <td style="width: 150px">{{ date('d/m/Y', strtotime($hoso->ngayhen_xuly)) }}</td>
+                                    <td style="width: 150px">{{ $hoso->thoihan_xuly }} ngày</td>
+                                    <td style="width: 100px">{{ config('constants.hoso_vipham.trang_thai')[$hoso->tinhtrang_hoso] }}</td>
+                                    <td style="width: 150px">{{ $hoso->mota }}</td>
+                                    <td style="width: 100px">
+                                        <a
+                                           href="{{ route('admin.chitiet_hoso', $hoso->ma_hoso) }}">
+                                            Xem chi tiết
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

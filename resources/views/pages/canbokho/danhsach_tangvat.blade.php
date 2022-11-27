@@ -3,167 +3,76 @@
 @section('title','Quản lý tang vật')
 
 @section('content')
-
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
         <div class="panel-body">
-
             <div class="panel panel-default">
-                <div class="panel-heading">HỒ Sơ 175PT</div>
+                @if (Session::has('success'))
+                    <div class="alert alert-success">
+                        {!! \Session::get('success') !!}
+                    </div>
+                @elseif((Session::has('error')))
+                    <div class="alert alert-danger">
+                        {!! \Session::get('error') !!}
+                    </div>
+                @endif
+                <div class="panel-heading">
+                    Thông Tin Tang Vật
+                </div>
                 <div class="panel-body">
-                    <div class="view-info">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="general-info">
-                                    <div class="row">
-                                        <div class="col-lg-12 col-xl-12">
-                                            <table class="table m-0 table-responsive">
-                                                <tbody>
-                                                <tr>
-                                                    <th scope="row">Mã Tang Vật</th>
-                                                    <td>175PT</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Tên Tang Vật</th>
-                                                    <td>Xe SH150I</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Mã Người Nhập Tang Vật</th>
-                                                    <td>173HG</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Mã Người Vi Phạm</th>
-                                                    <td>REREF</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Mô Tả</th>
-                                                    <td>SH 150i, màu trắng, xướt phần đuôi xe</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- end of table col-lg-6 -->
-                                    </div>
-                                    <!-- end of row -->
-                                </div>
-                                <!-- end of general info -->
-                            </div>
-                            <!-- end of col-lg-12 -->
-                        </div>
-                        <!-- end of row -->
-                        <button type="button" style="margin: 0px 10px;" class="btn btn-primary pull-right ">
-                            Trả Tang Vật
-                        </button>
-                        <button type="button" style="margin: 0px 10px;" class="btn btn-primary pull-right ">
-                            Sửa Tang Vật
-                        </button>
+                    <table class="table  table-striped table-responsive table-hover text-center">
+                        <thead>
+                        <tr>
+                            <th class="text-center">Mã Tang Vật</th>
+                            <th class="text-center">Tên</th>
+                            <th class="text-center">Mã Hồ Sơ</th>
+                            <th class="text-center">Mã CB Nhận</th>
+                            <th class="text-center">Mã CB Trả</th>
+                            <th class="text-center">Ngày giữ</th>
+                            <th class="text-center">Thời gian giữ</th>
+                            <th class="text-center">Ngày trả</th>
+                            <th class="text-center">Trạng thái</th>
+                            <th class="text-center">Mô tả</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @if( count($danhsachTangvat) <= 0)
+                            <tr>
+                                <td colspan="11" style="height: 100px">
+                                    Không có dữ liệu !
+                                </td>
+                            </tr>
+                        @else
+                            @foreach($danhsachTangvat as $tangvat)
+                                <tr>
+                                    <td>{{ $tangvat->ma_tangvat }}</td>
+                                    <td>{{ $tangvat->ten_tangvat }}</td>
+                                    <td>{{ $tangvat->ma_hoso }}</td>
+                                    <td>{{ $tangvat->ma_canbo_nhan }}</td>
+                                    <td>{{ $tangvat->ma_canbo_tra }}</td>
+                                    <td>{{ date('d/m/Y', strtotime($tangvat->ngay_tam_giu)) }}</td>
+                                    <td>{{ $tangvat->thoigian_tamgiu }} ngày</td>
+                                    <td>{{ $tangvat->ngaytra_tangvat ? date('d/m/Y', strtotime($tangvat->ngaytra_tangvat)) : null }}</td>
+                                    <td>{{ config('constants.tang_vat.trang_thai')[$tangvat->trang_thai] }}</td>
+                                    <td>{{ $tangvat->mota }}</td>
+                                    <td>
+                                        <div style="display: flex; flex-direction: column;">
+                                            @if($tangvat->trang_thai == 1)
+                                            <a type="button" class="btn btn-primary btn-edit"
+                                               href="{{ route('cb_kho.tra_tangvat', $tangvat->ma_tangvat) }}">
+                                                Trả
+                                            </a>
+                                            @else
 
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">HỒ Sơ 175PT</div>
-                <div class="panel-body">
-                    <div class="view-info">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="general-info">
-                                    <div class="row">
-                                        <div class="col-lg-12 col-xl-6">
-                                            <table class="table m-0 table-responsive">
-                                                <tbody>
-                                                <tr>
-                                                    <th scope="row">Mã Tang Vật</th>
-                                                    <td>175ER</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Tên Tang Vật</th>
-                                                    <td>Xe Libety</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Mã Người Nhập Tang Vật</th>
-                                                    <td>165ET</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Mã Người Vi Phạm</th>
-                                                    <td>168TR</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Mô Tả</th>
-                                                    <td>Lybety, Màu trắng</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
+                                            @endif
                                         </div>
-                                        <!-- end of table col-lg-6 -->
-                                    </div>
-                                    <!-- end of row -->
-                                </div>
-                                <!-- end of general info -->
-                            </div>
-                            <!-- end of col-lg-12 -->
-                        </div>
-                        <!-- end of row -->
-                        <button type="button" style="margin: 0px 10px;" class="btn btn-primary pull-right ">
-                            Trả Tang Vật
-                        </button>
-                        <button type="button" style="margin: 0px 10px;" class="btn btn-primary pull-right ">
-                            Sửa Tang Vật
-                        </button>
-                    </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
+                        </tbody>
+                    </table>
                 </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">HỒ Sơ 175PT</div>
-                <div class="panel-body">
-                    <div class="view-info">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="general-info">
-                                    <div class="row">
-                                        <div class="col-lg-12 col-xl-6">
-                                            <table class="table m-0 table-responsive">
-                                                <tbody>
-                                                <tr>
-                                                    <th scope="row">Mã Tang Vật</th>
-                                                    <td>165FR</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Tên Tang Vật</th>
-                                                    <td>Ô Tô</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Mã Người Nhập Tang Vật</th>
-                                                    <td>147DR</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Mã Người Vi Phạm</th>
-                                                    <td>135FR</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Mô Tả</th>
-                                                    <td>Ô Tô Màu Trắng, Đời 2018</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- end of table col-lg-6 -->
-                                    </div>
-                                    <!-- end of row -->
-                                </div>
-                                <!-- end of general info -->
-                            </div>
-                            <!-- end of col-lg-12 -->
-                        </div>
-                        <!-- end of row -->
-                        <button type="button" style="margin: 0px 10px;" class="btn btn-primary pull-right ">
-                            Trả Tang Vật
-                        </button>
-                        <button type="button" style="margin: 0px 10px;" class="btn btn-primary pull-right ">
-                            Sửa Tang Vật
-                        </button>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>

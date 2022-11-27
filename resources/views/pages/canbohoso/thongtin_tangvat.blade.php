@@ -8,188 +8,54 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Thông Tin Tang Vật
-                    <!-- The Modal -->
-                    <div class="modal fade" id="myModal">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <!-- Modal Header -->
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Chỉnh Sửa Thông Tin Tang Vật</h4>
-
-                                </div>
-                                <!-- Modal body -->
-                                <div class="modal-body">
-                                    <div class="edit-info">
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="general-info">
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <table class="table">
-                                                                <tbody>
-                                                                <tr>
-                                                                    <td>
-                                                                        <div class="input-group">
-                                                                                            <span
-                                                                                                class="input-group-addon"><i
-                                                                                                    class="icofont icofont-user"></i></span>
-                                                                            <input type="text" class="form-control"
-                                                                                   placeholder="Mã Tang Vật">
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <td>
-                                                                        <input id="dropper-default"
-                                                                               class="form-control" type="text"
-                                                                               placeholder="Tên Tang Vật"/>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <div class="input-group">
-                                                                                            <span
-                                                                                                class="input-group-addon"><i
-                                                                                                    class="icofont icofont-location-pin"></i></span>
-                                                                            <input type="text" class="form-control"
-                                                                                   placeholder="Mã Hồ Sơ ">
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                        <!-- end of table col-lg-6 -->
-                                                        <div class="col-lg-6">
-                                                            <table class="table">
-                                                                <tbody>
-                                                                <tr>
-                                                                    <td>
-                                                                        <div class="input-group">
-                                                                                            <span
-                                                                                                class="input-group-addon"><i
-                                                                                                    class="icofont icofont-mobile-phone"></i></span>
-                                                                            <input type="text" class="form-control"
-                                                                                   placeholder="Mã Người Vi Phạm">
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <div class="input-group">
-                                                                                            <span
-                                                                                                class="input-group-addon"><i
-                                                                                                    class="icofont icofont-social-twitter"></i></span>
-                                                                            <input type="text" class="form-control"
-                                                                                   placeholder="Mã Cán Bộ Nhận">
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <td>
-                                                                        <div class="input-group">
-                                                                                            <span
-                                                                                                class="input-group-addon"><i
-                                                                                                    class="icofont icofont-social-skype"></i></span>
-                                                                            <input class="form-control"
-                                                                                   placeholder="Mã Cán Bộ Trả">
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                        <!-- end of table col-lg-6 -->
-                                                    </div>
-                                                    <!-- end of row -->
-                                                    <div class="text-center">
-                                                        <a href="#!"
-                                                           class="btn btn-primary waves-effect waves-light m-r-20">Save</a>
-                                                        <button type="button" class="btn btn-danger"
-                                                                data-dismiss="modal">Close
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <!-- end of edit info -->
-                                            </div>
-                                            <!-- end of col-lg-12 -->
-                                        </div>
-                                        <!-- end of row -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="panel-body">
-                    <div class="view-info">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="general-info">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-xl-6">
-                                            <table class="table m-0 table-responsive">
-                                                <tbody>
-                                                <tr>
-                                                    <th scope="row">Mã Tang Vật</th>
-                                                    <td><a href="#!">HONDA</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Tên Tang Vật</th>
-                                                    <td>AB Honda</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Mã Hồ Sơ</th>
-                                                    <td>HFY56</td>
-                                                </tr>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- end of table col-lg-6 -->
-                                        <div class="col-lg-6 col-xl-6">
-                                            <table class="table table-responsive">
-                                                <tbody>
-                                                <tr>
-                                                    <th scope="row">Mã Người Vi Phạm</th>
-                                                    <td>1738495743</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Mã Cán Bộ Nhận</th>
-                                                    <td>HGTRF</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Mã Cán Bộ Trả</th>
-                                                    <td>DHFYT</td>
-                                                </tr>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- end of table col-lg-6 -->
-                                    </div>
-                                    <!-- end of row -->
-                                </div>
-                                <!-- end of general info -->
-                            </div>
-                            <!-- end of col-lg-12 -->
-                        </div>
-                        <!-- end of row -->
-                        <button type="button" style="margin: 0px 10px;" class="btn btn-primary pull-right ">
-                            Delete
-                        </button>
-                        <button type="button" style="margin: 0px 10px;" class="btn btn-primary pull-right ">
-                            Add
-                        </button>
-                        <button type="button" style="margin: 0px 10px;" class="btn btn-primary pull-right "
-                                data-toggle="modal" data-target="#myModal">
-                            Edit
-                        </button>
-                    </div>
+                    <table class="table  table-striped table-responsive table-hover text-center">
+                        <thead>
+                        <tr>
+                            <th class="text-center">Mã Tang Vật</th>
+                            <th class="text-center">Tên</th>
+                            <th class="text-center">Mã Hồ Sơ</th>
+                            <th class="text-center">Mã CB Nhận</th>
+                            <th class="text-center">Mã CB Trả</th>
+                            <th class="text-center">Ngày giữ</th>
+                            <th class="text-center">Thời gian giữ</th>
+                            <th class="text-center">Ngày trả</th>
+                            <th class="text-center">Trạng thái</th>
+                            <th class="text-center">Mô tả</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @if( count($danhsachTangvat) <= 0)
+                            <tr>
+                                <td colspan="11" style="height: 100px">
+                                    Không có dữ liệu !
+                                </td>
+                            </tr>
+                        @else
+                        @foreach($danhsachTangvat as $tangvat)
+                            <tr>
+                                <td>{{ $tangvat->ma_tangvat }}</td>
+                                <td>{{ $tangvat->ten_tangvat }}</td>
+                                <td>{{ $tangvat->ma_hoso }}</td>
+                                <td>{{ $tangvat->ma_canbo_nhan }}</td>
+                                <td>{{ $tangvat->ma_canbo_tra }}</td>
+                                <td>{{ date('d/m/Y', strtotime($tangvat->ngay_tam_giu)) }}</td>
+                                <td>{{ $tangvat->thoigian_tamgiu }} ngày</td>
+                                <td>{{ $tangvat->ngaytra_tangvat ? date('d/m/Y', strtotime($tangvat->ngaytra_tangvat)) : null }}</td>
+                                <td>{{ config('constants.tang_vat.trang_thai')[$tangvat->trang_thai] }}</td>
+                                <td>{{ $tangvat->mota }}</td>
+                                <td>
+                                    <a type="button" class="btn btn-primary btn-edit"
+                                       href="{{ route('cb_hoso.chinhsua_tangvat', $tangvat->ma_tangvat) }}">
+                                        Chỉnh sửa
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        @endif
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

@@ -11,7 +11,7 @@
 
     <link href="{{ asset('css/bootstrap/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap/bootstrap-table.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bootstrap/font-awesome.min.css') }}" rel="stylesheet">
+
     <link href="{{ asset('css/datapicker.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>

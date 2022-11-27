@@ -21,7 +21,7 @@ class CreateYkienPhanhoiTable extends Migration
             $table->date('thoi_gian');
             $table->integer('trang_thai');
             $table->timestamps();
-            $table->foreign('ma_hoso')->cascadeOnUpdate()->references('ma_hoso')->on('hoso_vipham');
+            $table->foreign('ma_hoso')->references('ma_hoso')->on('hoso_vipham');
         });
     }
 

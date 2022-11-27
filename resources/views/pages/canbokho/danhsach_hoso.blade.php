@@ -5,228 +5,62 @@
 @section('content')
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
         <div class="panel-body">
-
             <div class="panel panel-default">
-                <div class="panel-heading">HỒ Sơ 175PT</div>
-                <div class="panel-body">
-                    <div class="view-info">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="general-info">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-xl-6">
-                                            <table class="table m-0 table-responsive">
-                                                <tbody>
-                                                <tr>
-                                                    <th scope="row">Mã Hồ Sơ</th>
-                                                    <td>175PT</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Tên Hồ Sơ</th>
-                                                    <td>Tứ QQ</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Thời Gian Vi Phạm</th>
-                                                    <td>October 25th, 1999</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Địa Điểm Vi Phạm</th>
-                                                    <td>ĐH Kiến Trúc</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Mã CB Lập Biên bản</th>
-                                                    <td>20KTX</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- end of table col-lg-6 -->
-                                        <div class="col-lg-6 col-xl-6">
-                                            <table class="table table-responsive">
-                                                <tbody>
-                                                <tr>
-                                                    <th scope="row">Mã Người Vi Phạm</th>
-                                                    <td><a href="#!">TUAC5</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Ngày Xử Lý Hồ Sơ</th>
-                                                    <td>20/02/2021</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Mã Cán Bộ Xử Lý Hồ Sơ</th>
-                                                    <td>@pthungvuong</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Tình Trạng Hồ Sơ</th>
-                                                    <td>Chưa Xử Lý</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Hình Ảnh</th>
-                                                    <td><a href="#!">xuly111.jpg</a></td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- end of table col-lg-6 -->
-                                    </div>
-                                    <!-- end of row -->
-                                </div>
-                                <!-- end of general info -->
-                            </div>
-                            <!-- end of col-lg-12 -->
-                        </div>
-                        <!-- end of row -->
-                    </div>
+                <div class="table-responsive table-scroll panel-body">
+                    <table class="table table-striped table-hover text-center" style="width:100%; max-width: 100%">
+                        <thead>
+                        <tr>
+                            <th class="text-center" style="width: 100px">Mã Hồ Sơ</th>
+                            <th class="text-center" style="width: 100px">Tên Hồ Sơ</th>
+                            <th class="text-center" style="width: 150px">Thời Gian Lập BB</th>
+                            <th class="text-center" style="width: 150px">Địa Điểm Lập BB</th>
+                            <th class="text-center" style="width: 150px">Mã CB Lập BB</th>
+                            <th class="text-center" style="width: 150px">Mã CB XLHS</th>
+                            <th class="text-center" style="width: 150px">CMND Nguoi Vi Pham</th>
+                            <th class="text-center" style="width: 150px">Ngày Nhập Hồ Sơ</th>
+                            <th class="text-center" style="width: 150px">Ngày Xử Lý Hồ Sơ</th>
+                            <th class="text-center" style="width: 150px">Ngày Hẹn Xử Lý</th>
+                            <th class="text-center" style="width: 150px">Thời Hạn Xử Lý</th>
+                            <th class="text-center" style="width: 100px">Tình Trạng</th>
+                            <th class="text-center" style="width: 150px">Mô Tả</th>
+                            <th class="text-center" style="width: 100px"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @if( count($hosoVipham) <= 0)
+                            <tr>
+                                <td colspan="14">
+                                    Hồ sơ trống!
+                                </td>
+                            </tr>
+                        @else
+                            @foreach($hosoVipham as $hoso)
+                                <tr>
+                                    <td style="width: 100px">{{ $hoso->ma_hoso }}</td>
+                                    <td style="width: 100px">{{ $hoso->ten_hoso }}</td>
+                                    <td style="width: 150px">{{ date('d/m/Y', strtotime($hoso->thoigian_lapbienban)) }}</td>
+                                    <td style="width: 150px">{{ $hoso->diadiem_lapbienban }}</td>
+                                    <td style="width: 150px">{{ $hoso->ma_canbo_lapbienban }}</td>
+                                    <td style="width: 150px">{{ $hoso->ma_canbo_xuly_hoso }}</td>
+                                    <td style="width: 150px">{{ $hoso->cmnd_nguoivipham }}</td>
+                                    <td style="width: 150px">{{ date('d/m/Y', strtotime($hoso->ngaynhap_hoso)) }}</td>
+                                    <td style="width: 150px">{{ $hoso->ngayxuly_hoso ? date('d/m/Y', strtotime($hoso->ngayxuly_hoso)): null }}</td>
+                                    <td style="width: 150px">{{ date('d/m/Y', strtotime($hoso->ngayhen_xuly)) }}</td>
+                                    <td style="width: 150px">{{ $hoso->thoihan_xuly }} ngày</td>
+                                    <td style="width: 100px">{{ config('constants.hoso_vipham.trang_thai')[$hoso->tinhtrang_hoso] }}</td>
+                                    <td style="width: 150px">{{ $hoso->mota }}</td>
+                                    <td style="width: 100px">
+                                        <a
+                                            href="{{ route('cb_kho.chitiet_hoso', $hoso->ma_hoso) }}">
+                                            Xem chi tiết
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
+                        </tbody>
+                    </table>
                 </div>
-
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">HỒ Sơ 175PT</div>
-                <div class="panel-body">
-                    <div class="view-info">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="general-info">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-xl-6">
-                                            <table class="table m-0 table-responsive">
-                                                <tbody>
-                                                <tr>
-                                                    <th scope="row">Mã Hồ Sơ</th>
-                                                    <td>175PT</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Tên Hồ Sơ</th>
-                                                    <td>Tứ QQ</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Thời Gian Vi Phạm</th>
-                                                    <td>October 25th, 1999</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Địa Điểm Vi Phạm</th>
-                                                    <td>ĐH Kiến Trúc</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Location</th>
-                                                    <td>ĐH Kiến Trúc</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- end of table col-lg-6 -->
-                                        <div class="col-lg-6 col-xl-6">
-                                            <table class="table table-responsive">
-                                                <tbody>
-                                                <tr>
-                                                    <th scope="row">Email</th>
-                                                    <td><a href="#!">kientruc.com</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Mobile Number</th>
-                                                    <td>(0123) - 4567891</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Twitter</th>
-                                                    <td>@pthungvuong</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Skype</th>
-                                                    <td>phoenixcoded.demo</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Website</th>
-                                                    <td><a href="#!">www.demo.com</a></td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- end of table col-lg-6 -->
-                                    </div>
-                                    <!-- end of row -->
-                                </div>
-                                <!-- end of general info -->
-                            </div>
-                            <!-- end of col-lg-12 -->
-                        </div>
-                        <!-- end of row -->
-                    </div>
-                </div>
-
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">HỒ Sơ 175PT</div>
-                <div class="panel-body">
-                    <div class="view-info">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="general-info">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-xl-6">
-                                            <table class="table m-0 table-responsive">
-                                                <tbody>
-                                                <tr>
-                                                    <th scope="row">Mã Hồ Sơ</th>
-                                                    <td>175PT</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Tên Hồ Sơ</th>
-                                                    <td>Tứ QQ</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Thời Gian Vi Phạm</th>
-                                                    <td>October 25th, 1999</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Địa Điểm Vi Phạm</th>
-                                                    <td>ĐH Kiến Trúc</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Location</th>
-                                                    <td>ĐH Kiến Trúc</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- end of table col-lg-6 -->
-                                        <div class="col-lg-6 col-xl-6">
-                                            <table class="table table-responsive">
-                                                <tbody>
-                                                <tr>
-                                                    <th scope="row">Email</th>
-                                                    <td><a href="#!">kientruc.com</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Mobile Number</th>
-                                                    <td>(0123) - 4567891</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Twitter</th>
-                                                    <td>@pthungvuong</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Skype</th>
-                                                    <td>phoenixcoded.demo</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Website</th>
-                                                    <td><a href="#!">www.demo.com</a></td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- end of table col-lg-6 -->
-                                    </div>
-                                    <!-- end of row -->
-                                </div>
-                                <!-- end of general info -->
-                            </div>
-                            <!-- end of col-lg-12 -->
-                        </div>
-                        <!-- end of row -->
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>

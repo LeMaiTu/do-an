@@ -18,7 +18,7 @@
                                class="form-control @error('nguoivipham.cmnd') is-invalid @enderror"
                         >
                         @error('nguoivipham.cmnd')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger d-none">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                                class="form-control @error('nguoivipham.ho_ten') is-invalid @enderror"
                                value="{{ old('nguoivipham.ho_ten') }}">
                         @error('nguoivipham.ho_ten')
-                        <div class=" alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger d-none">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                             <option value="1" {{ old('nguoivipham.gioi_tinh') == 1 ? 'selected' : '' }}>Nam</option>
                         </select>
                         @error('nguoivipham.gioi_tinh')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger d-none">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -53,9 +53,9 @@
                     <div class="col-md-6">
                         <input id="ngay_sinh" name="nguoivipham[ngay_sinh]" type="date" placeholder="Nhập ngày sinh"
                                class="form-control @error('nguoivipham.ngay_sinh') is-invalid @enderror"
-                               value="{{ old('nguoivipham.ngay_sinh') }}">
+                               value="{{ old('nguoivipham.ngay_sinh', date('Y-m-d')) }}">
                         @error('nguoivipham.ngay_sinh')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger d-none">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                                class="form-control @error('nguoivipham.dia_chi') is-invalid @enderror"
                                value="{{ old('nguoivipham.dia_chi') }}">
                         @error('nguoivipham.dia_chi')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger d-none">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                                class="form-control @error('nguoivipham.sdt') is-invalid @enderror"
                                value="{{ old('nguoivipham.sdt') }}">
                         @error('nguoivipham.sdt')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger d-none">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                                class="form-control @error('nguoivipham.email') is-invalid @enderror"
                                value="{{ old('nguoivipham.email') }}">
                         @error('nguoivipham.email')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger d-none">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -113,7 +113,7 @@
                                class="form-control @error('hosovipham.ma_hoso') is-invalid @enderror"
                                value="{{ old('hosovipham.ma_hoso') }}">
                         @error('hosovipham.ma_hoso')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger d-none">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -127,7 +127,7 @@
                                class="form-control @error('hosovipham.ten_hoso') is-invalid @enderror"
                                value="{{ old('hosovipham.ten_hoso') }}">
                         @error('hosovipham.ten_hoso')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger d-none">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -140,9 +140,9 @@
                         <input id="thoigian_lapbienban" name="hosovipham[thoigian_lapbienban]" type="date"
                                placeholder="Nhập TG_Lập Biên Bản"
                                class="form-control @error('hosovipham.thoigian_lapbienban') is-invalid @enderror"
-                               value="{{ old('hosovipham.thoigian_lapbienban') }}">
+                               value="{{ old('hosovipham.thoigian_lapbienban', date('Y-m-d')) }}">
                         @error('hosovipham.thoigian_lapbienban')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger d-none">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -156,33 +156,41 @@
                                class="form-control @error('hosovipham.diadiem_lapbienban') is-invalid @enderror"
                                value="{{ old('hosovipham.diadiem_lapbienban') }}">
                         @error('hosovipham.diadiem_lapbienban')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div>
-                <!-- Số Điện Thoại -->
-                <div class="form-group">
-                    <label class="col-md-3 control-label" for="ma_canbo_lapbienban">Mã Cán Bộ Lập Biên Bản</label>
-                    <div class="col-md-6">
-                        <input id="ma_canbo_lapbienban" name="hosovipham[ma_canbo_lapbienban]" type="text"
-                               placeholder=" Nhập Mã Cán Bộ Lập Biên Bản"
-                               class="form-control @error('hosovipham.ma_canbo_lapbienban') is-invalid @enderror"
-                               value="{{ old('hosovipham.ma_canbo_lapbienban') }}">
-                        @error('hosovipham.ma_canbo_lapbienban')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger d-none">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-md-3 control-label" fo="ngay_nhaphoso">Ngày Nhập HS</label>
+                    <label class="col-md-3 control-label" for="ma_canbo_lapbienban">Mã Cán Bộ Lập Biên Bản</label>
                     <div class="col-md-6">
-                        <input id="ngay_nhaphoso" name="hosovipham[ngay_nhaphoso]" type="date"
+                        <select id="ma_canbo_lapbienban" name="hosovipham[ma_canbo_lapbienban]" type="text"
+                                class="form-control @error('hosovipham.ma_canbo_lapbienban') is-invalid @enderror">
+                            <option value="">Cán Bộ Lập Biên Bản</option>
+                            @foreach($canboLapbb as $canbo)
+                                <option value="{{ $canbo->ma_canbo }}" {{ old('hosovipham.ma_canbo_lapbienban') ==  $canbo->ma_canbo ? 'selected' : ''}}>{{ $canbo->ten_canbo }}</option>
+                                @endforeach
+                                </option>
+                        </select>
+{{--                        <input id="ma_canbo_lapbienban" name="hosovipham[ma_canbo_lapbienban]" type="text"--}}
+{{--                               placeholder=" Nhập Mã Cán Bộ Lập Biên Bản"--}}
+{{--                               class="form-control @error('hosovipham.ma_canbo_lapbienban') is-invalid @enderror"--}}
+{{--                               value="{{ old('hosovipham.ma_canbo_lapbienban') }}">--}}
+                        @error('hosovipham.ma_canbo_lapbienban')
+                        <div class="alert alert-danger d-none">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label" fo="ngaynhap_hoso">Ngày Nhập HS</label>
+                    <div class="col-md-6">
+                        <input id="ngaynhap_hoso" name="hosovipham[ngaynhap_hoso]" type="date"
                                placeholder="Nhập Ngày Nhập HS "
-                               class="form-control @error('hosovipham.ngay_nhaphoso') is-invalid @enderror"
-                               value="{{ old('hosovipham.ngay_nhaphoso') }}">
-                        @error('hosovipham.ngay_nhaphoso')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                               class="form-control @error('hosovipham.ngaynhap_hoso') is-invalid @enderror"
+                               value="{{ old('hosovipham.ngaynhap_hoso', date('Y-m-d')) }}">
+                        @error('hosovipham.ngaynhap_hoso')
+                        <div class="alert alert-danger d-none">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -192,9 +200,9 @@
                         <input id="ngayhen_xuly" name="hosovipham[ngayhen_xuly]" type="date"
                                placeholder="Nhập Ngày Hẹn Xử Lý HS "
                                class="form-control @error('hosovipham.ngayhen_xuly') is-invalid @enderror"
-                               value="{{ old('hosovipham.ngayhen_xuly') }}">
+                               value="{{ old('hosovipham.ngayhen_xuly', date('Y-m-d')) }}">
                         @error('hosovipham.ngayhen_xuly')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger d-none">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -207,21 +215,21 @@
                                class="form-control @error('hosovipham.thoihan_xuly') is-invalid @enderror"
                                value="{{ old('hosovipham.thoihan_xuly') }}">
                         @error('hosovipham.thoihan_xuly')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger d-none">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-3 control-label" for="ma_canbo_xuly">Mã Cán Bộ XLHS</label>
+                    <label class="col-md-3 control-label" for="ma_canbo_xuly_hoso">Mã Cán Bộ XLHS</label>
                     <div class="col-md-6">
-                        <input id="ma_canbo_xuly" name="hosovipham[ma_canbo_xuly]"
+                        <input id="ma_canbo_xuly_hoso" name="hosovipham[ma_canbo_xuly_hoso]"
                                value="{{ auth('admin')->user()->ma_canbo }}" type="text"
                                placeholder="Nhập Mã Cán Bộ XLHS "
-                               class="form-control @error('hosovipham.ma_canbo_xuly') is-invalid @enderror"
-                               value="{{ old('hosovipham.ma_canbo_xuly') }}"
+                               class="form-control @error('hosovipham.ma_canbo_xuly_hoso') is-invalid @enderror"
+                               value="{{ old('hosovipham.ma_canbo_xuly_hoso') }}"
                                readonly>
-                        @error('hosovipham.ma_canbo_xuly')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        @error('hosovipham.ma_canbo_xuly_hoso')
+                        <div class="alert alert-danger d-none">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -232,7 +240,7 @@
                                id="hosovipham[hinh_anh]" name="hinh_anh" placeholder="Hình Ảnh"
                                value="{{ old('hosovipham.hinh_anh') }}"/>
                         @error('hosovipham.hinh_anh')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger d-none">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -244,7 +252,7 @@
                               class="form-control @error('hosovipham.mo_ta') is-invalid @enderror"
                     >{{ old('hosovipham.mo_ta') }}</textarea>
                         @error('hosovipham.mo_ta')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger d-none">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -279,7 +287,7 @@
                                 <input id="ma_tangvat" name="tangvat[0][ma_tangvat]" type="text "
                                        class="form-control @error('tangvat.0.ma_tangvat') is-invalid @enderror">
                                 @error('tangvat.0.ma_tangvat')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                                <div class="alert alert-danger d-none">{{ $message }}</div>
                                 @enderror
                             </div>
                         </td>
@@ -288,16 +296,17 @@
                                 <input id="ten_tangvat" name="tangvat[0][ten_tangvat]" type="text"
                                        class="form-control @error('tangvat.0.ten_tangvat') is-invalid @enderror">
                                 @error('tangvat.0.ten_tangvat')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                                <div class="alert alert-danger d-none">{{ $message }}</div>
                                 @enderror
                             </div>
                         </td>
                         <td class="col-md-2">
                             <div class="group">
                                 <input id="ngay_tamgiu" name="tangvat[0][ngay_tamgiu]" type="date"
-                                       class="form-control @error('tangvat.0.ngay_tamgiu') is-invalid @enderror">
+                                       class="form-control @error('tangvat.0.ngay_tamgiu') is-invalid @enderror"
+                                       value="{{ date('Y-m-d') }}">
                                 @error('tangvat.0.ngay_tamgiu')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                                <div class="alert alert-danger d-none">{{ $message }}</div>
                                 @enderror
                             </div>
                         </td>
@@ -306,7 +315,7 @@
                                 <input id="thoigian_tamgiu" name="tangvat[0][thoigian_tamgiu]" type="number"
                                        class="form-control @error('tangvat.0.thoigian_tamgiu') is-invalid @enderror">
                                 @error('tangvat.0.thoigian_tamgiu')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                                <div class="alert alert-danger d-none">{{ $message }}</div>
                                 @enderror
                             </div>
                         </td>
@@ -315,7 +324,7 @@
                                 <input id="mota" name="tangvat[0][mota]" type="text"
                                        class="form-control @error('tangvat.0.mota') is-invalid @enderror">
                                 @error('tangvat.0.mota')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                                <div class="alert alert-danger d-none">{{ $message }}</div>
                                 @enderror
                             </div>
                         </td>
@@ -338,7 +347,7 @@
                                            value="{{$tangvat['ma_tangvat']}}"
                                     >
                                     @error('tangvat.'.$key_tv.'.ma_tangvat')
-                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    <div class="alert alert-danger d-none">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </td>
@@ -348,7 +357,7 @@
                                            class="form-control @error('tangvat.'.$key_tv.'.ten_tangvat') is-invalid @enderror"
                                            value="{{$tangvat['ten_tangvat']}}">
                                     @error('tangvat.'.$key_tv.'.ten_tangvat')
-                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    <div class="alert alert-danger d-none">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </td>
@@ -358,7 +367,7 @@
                                            class="form-control @error('tangvat.'.$key_tv.'.ngay_tamgiu') is-invalid @enderror"
                                            value="{{$tangvat['ngay_tamgiu']}}">
                                     @error('tangvat.'.$key_tv.'.ngay_tamgiu')
-                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    <div class="alert alert-danger d-none">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </td>
@@ -369,7 +378,7 @@
                                            class="form-control @error('tangvat.'.$key_tv.'.thoigian_tamgiu') is-invalid @enderror"
                                            value="{{$tangvat['thoigian_tamgiu']}}">
                                     @error('tangvat.'.$key_tv.'.thoigian_tamgiu')
-                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    <div class="alert alert-danger d-none">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </td>
@@ -379,7 +388,7 @@
                                            class="form-control @error('tangvat.'.$key_tv.'.mota') is-invalid @enderror"
                                            value="{{$tangvat['mota']}}">
                                     @error('tangvat.'.$key_tv.'.mota')
-                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    <div class="alert alert-danger d-none">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </td>
@@ -408,9 +417,9 @@
                 <tr class="row">
                     <th class="col-md-3 text-center">Mã Lỗi</th>
                     <th class="col-md-3 text-center">Phạt Hành Chính</th>
-                    <th class="col-md-6 text-center">Mô Tả</th>
-                    <th class="col-md-6 text-center">
-                        <button id="btn_add_loi" type="button" class="btn btn-primary  pull-left">
+                    <th class="col-md-5 text-center">Mô Tả</th>
+                    <th class="col-md-1 text-center">
+                        <button id="btn_add_loi" type="button" class="btn btn-primary">
                             Thêm
                         </button>
                     </th>
@@ -424,16 +433,16 @@
                     <tr id="loi_0" class="row">
                         <td class="col-md-3">
                             <div class="group">
-                                <select id="ma_loi" name="loivipham[0][ma_loi]" type="text"
-                                        class="form-control @error('loivipham.0.ma_loi') is-invalid @enderror">
+                                <select id="ma_loi_vipham" name="loivipham[0][ma_loi_vipham]" type="text"
+                                        class="form-control @error('loivipham.0.ma_loi_vipham') is-invalid @enderror">
                                     <option value="">Lỗi vi phạm</option>
                                     @foreach($danhmucloi as $loi)
                                         <option value="{{ $loi->ma_loi }}">{{ $loi->ten_loi }}</option>
                                         @endforeach
                                         </option>
                                 </select>
-                                @error('loivipham.0.ma_loi')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                                @error('loivipham.0.ma_loi_vipham')
+                                <div class="alert alert-danger d-none">{{ $message }}</div>
                                 @enderror
                             </div>
                         </td>
@@ -444,8 +453,8 @@
                                     name="loivipham[0][phat_hanhchinh]"
                                     type="number"
                                     class="form-control @error('loivipham.0.phat_hanhchinh') is-invalid @enderror">
-                                @error('loivipham.0.ma_loi')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                                @error('loivipham.0.phat_hanhchinh')
+                                <div class="alert alert-danger d-none">{{ $message }}</div>
                                 @enderror
                             </div>
                         </td>
@@ -456,7 +465,7 @@
                                        type="text"
                                        class="form-control @error('loivipham.0.mo_ta') is-invalid @enderror">
                                 @error('loivipham.0.mo_ta')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                                <div class="alert alert-danger d-none">{{ $message }}</div>
                                 @enderror
                             </div>
                         </td>
@@ -475,19 +484,19 @@
                             <td class="col-md-3">
                                 <div class="group">
                                     <select
-                                        id="ma_loi"
-                                        name="loivipham[{{$key_loi}}][ma_loi]"
-                                        class="form-control @error('loivipham.'.$key_loi.'.ma_loi') is-invalid @enderror"
+                                        id="ma_loi_vipham"
+                                        name="loivipham[{{$key_loi}}][ma_loi_vipham]"
+                                        class="form-control @error('loivipham.'.$key_loi.'.ma_loi_vipham') is-invalid @enderror"
                                     >
                                         <option value="">Lỗi vi phạm</option>
                                         @foreach($danhmucloi as $loi)
                                             <option
-                                                value="{{ $loi->ma_loi }}" {{ $item['ma_loi'] == $loi->ma_loi ? 'selected' : '' }}>{{ $loi->ten_loi }}</option>
+                                                value="{{ $loi->ma_loi }}" {{ $item['ma_loi_vipham'] == $loi->ma_loi ? 'selected' : '' }}>{{ $loi->ten_loi }}</option>
                                             @endforeach
                                             </option>
                                     </select>
-                                    @error('loivipham.'.$key_loi.'.ma_loi')
-                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @error('loivipham.'.$key_loi.'.ma_loi_vipham')
+                                    <div class="alert alert-danger d-none">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </td>
@@ -500,7 +509,7 @@
                                         value="{{$item['phat_hanhchinh']}}">
                                 </div>
                                 @error('loivipham.'.$key_loi.'.phat_hanhchinh')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                                <div class="alert alert-danger d-none">{{ $message }}</div>
                                 @enderror
                             </td>
                             <td class="col-md-5">
@@ -510,7 +519,7 @@
                                         class="form-control @error('loivipham.{{$key_loi}}.mo_ta') is-invalid @enderror"
                                         value="{{$item['mo_ta']}}">
                                     @error('loivipham.'.$key_loi.'.mo_ta')
-                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    <div class="alert alert-danger d-none">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </td>
@@ -532,7 +541,7 @@
     <!-- Form actions -->
     <div class="form-group">
         <div class="text-center">
-            <button type="submit" class="btn btn-edit btn-danger" id="btn_success" style="margin-bottom: 20px;">
+            <button type="submit" class="btn btn-edit btn-danger pull-right" id="btn_success" style="margin-bottom: 20px;">
                 Hoàn Tất Hồ Sơ
             </button>
         </div>
@@ -547,7 +556,7 @@
             let first_tr_loi = $('#res_loi tr').first();
             let first_tr_id = first_tr_loi.attr('id').split('_')[1];
 
-// check disable delete form
+            // check disable delete form
             if (last_tr_id == first_tr_id) return;
 
             let tr_id = btn_del_id.split('_')[2];
@@ -562,7 +571,7 @@
             let first_tr_loi = $('#res_tv tr').first();
             let first_tr_id = first_tr_loi.attr('id').split('_')[1];
 
-// check disable delete form
+            // check disable delete form
             if (last_tr_id == first_tr_id) return;
 
             let tr_id = btn_del_id.split('_')[2];
@@ -576,46 +585,47 @@
                 let last_tr_id = parseInt(last_tr_tv.attr('id').split('_')[1]);
                 let hmtl =
                     `
-<tr id="tv_${last_tr_id + 1}" class="row">
-<td class="col-md-2">
-    <div class="group">
-        <input id="ma_tangvat" name="tangvat[${last_tr_id + 1}][ma_tangvat]" type="text "
-               class="form-control @error('tangvat.*.ma_tangvat') is-invalid @enderror">
-    </div>
-</td>
-<td class="col-md-2">
-    <div class="group">
-        <input id="ten_tangvat" name="tangvat[${last_tr_id + 1}][ten_tangvat]" type="text"
-               class="form-control @error('tangvat.*.ten_tangvat') is-invalid @enderror">
-    </div>
-</td>
-<td class="col-md-2">
-    <div class="group">
-        <input id="ngay_tamgiu" name="tangvat[${last_tr_id + 1}][ngay_tamgiu]" type="date"
-               class="form-control @error('tangvat.*.ngay_tamgiu') is-invalid @enderror">
-    </div>
-</td>
-<td class="col-md-2">
-    <div class="group">
-        <input id="thoigian_tamgiu" name="tangvat[${last_tr_id + 1}][thoigian_tamgiu]" type="number"
-               class="form-control @error('tangvat.*.thoigian_tamgiu') is-invalid @enderror">
-    </div>
-</td>
-<td class="col-md-3">
-    <div class="group">
-        <input id="mota" name="tangvat[${last_tr_id + 1}][mota]" type="text"
-               class="form-control @error('tangvat.*.mota') is-invalid @enderror">
-    </div>
-</td>
-<td class="col-md-1">
-    <div class="group">
-        <button id="del_loi_${last_tr_id + 1}" type="button" class="btn btn-danger" onclick="deleteTangVat(this.id)">
-            Xóa
-        </button>
-    </div>
-</td>
-</tr>
-`;
+                        <tr id="tv_${last_tr_id + 1}" class="row">
+                        <td class="col-md-2">
+                            <div class="group">
+                                <input id="ma_tangvat" name="tangvat[${last_tr_id + 1}][ma_tangvat]" type="text "
+                                       class="form-control @error('tangvat.*.ma_tangvat') is-invalid @enderror">
+                            </div>
+                        </td>
+                        <td class="col-md-2">
+                            <div class="group">
+                                <input id="ten_tangvat" name="tangvat[${last_tr_id + 1}][ten_tangvat]" type="text"
+                                       class="form-control @error('tangvat.*.ten_tangvat') is-invalid @enderror">
+                            </div>
+                        </td>
+                        <td class="col-md-2">
+                            <div class="group">
+                                <input id="ngay_tamgiu" name="tangvat[${last_tr_id + 1}][ngay_tamgiu]" type="date"
+                                       class="form-control @error('tangvat.*.ngay_tamgiu') is-invalid @enderror"
+                                       value="{{ date('Y-m-d') }}">
+                            </div>
+                        </td>
+                        <td class="col-md-2">
+                            <div class="group">
+                                <input id="thoigian_tamgiu" name="tangvat[${last_tr_id + 1}][thoigian_tamgiu]" type="number"
+                                       class="form-control @error('tangvat.*.thoigian_tamgiu') is-invalid @enderror">
+                            </div>
+                        </td>
+                        <td class="col-md-3">
+                            <div class="group">
+                                <input id="mota" name="tangvat[${last_tr_id + 1}][mota]" type="text"
+                                       class="form-control @error('tangvat.*.mota') is-invalid @enderror">
+                            </div>
+                        </td>
+                        <td class="col-md-1">
+                            <div class="group">
+                                <button id="del_loi_${last_tr_id + 1}" type="button" class="btn btn-danger" onclick="deleteTangVat(this.id)">
+                                    Xóa
+                                </button>
+                            </div>
+                        </td>
+                        </tr>
+                    `;
                 last_tr_tv.after(hmtl);
             });
 
@@ -623,15 +633,15 @@
                 let last_tr_loi = $('#res_loi tr').last();
                 let last_tr_id = parseInt(last_tr_loi.attr('id').split('_')[1]);
                 let hmtl = `
-<tr id="loi_${last_tr_id + 1}" class="row">
-<td class="col-md-3">
-    <div class="group">
-        <select id="ma_loi" name="loivipham[${last_tr_id + 1}][ma_loi]" type="text"
-                class="form-control @error('hinh_anh') is-invalid @enderror">
-            <option value="">Lỗi vi phạm</option>
-            @foreach($danhmucloi as $loi)
+                    <tr id="loi_${last_tr_id + 1}" class="row">
+                    <td class="col-md-3">
+                        <div class="group">
+                            <select id="ma_loi_vipham" name="loivipham[${last_tr_id + 1}][ma_loi_vipham]" type="text"
+                                    class="form-control @error('hinh_anh') is-invalid @enderror">
+                                <option value="">Lỗi vi phạm</option>
+                                @foreach($danhmucloi as $loi)
                 <option value="{{ $loi->ma_loi }}">{{ $loi->ten_loi }}</option>
-            @endforeach
+                                @endforeach
                 </option>
                 </select>
                 </div>
@@ -639,24 +649,24 @@
                 <td class="col-md-3">
                 <div class="group">
                 <input id="phat_hanhchinh" step="1" name="loivipham[${last_tr_id + 1}][phat_hanhchinh]" type="number"
-               class="form-control @error('hinh_anh') is-invalid @enderror">
+                                   class="form-control @error('hinh_anh') is-invalid @enderror">
+                                    </div>
+                    </td>
+                    <td class="col-md-5">
+                        <div class="group">
+                            <input id="mo_ta" name="loivipham[${last_tr_id + 1}][mo_ta]" type="text"
+                                   class="form-control @error('hinh_anh') is-invalid @enderror">
                         </div>
-</td>
-<td class="col-md-5">
-    <div class="group">
-        <input id="mo_ta" name="loivipham[${last_tr_id + 1}][mo_ta]" type="text"
-               class="form-control @error('hinh_anh') is-invalid @enderror">
-    </div>
-</td>
-<td class="col-md-1">
-    <div class="group">
-        <button id="del_loi_${last_tr_id + 1}" type="button" class="btn btn-danger" onclick="deleteLoi(this.id)">
-            Xóa
-        </button>
-    </div>
-</td>
-</tr>
-`;
+                    </td>
+                    <td class="col-md-1">
+                        <div class="group">
+                            <button id="del_loi_${last_tr_id + 1}" type="button" class="btn btn-danger" onclick="deleteLoi(this.id)">
+                                Xóa
+                            </button>
+                        </div>
+                    </td>
+                    </tr>
+                    `;
                 last_tr_loi.after(hmtl);
             });
 

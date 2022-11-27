@@ -12,9 +12,8 @@ class ChitietHosoVipham extends Model
     protected $table = 'chitiet_hoso_vipham';
 
     protected $fillable = [
-        'ma_chitiet_hoso_vipham',
         'ma_hoso',
-        'ma_loi',
+        'ma_loi_vipham',
         'phat_hanhchinh',
         'mo_ta',
     ];

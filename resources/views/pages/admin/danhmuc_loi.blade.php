@@ -9,7 +9,7 @@
                 Thông Tin Lỗi Vi Phạm
             </div>
             <div class="panel-body">
-                <table class="table table-striped text-center">
+                <table class="table  table-striped table-responsive table-hover text-center">
                     <thead>
                     <tr>
                         <th class="text-center">Mã Lỗi</th>

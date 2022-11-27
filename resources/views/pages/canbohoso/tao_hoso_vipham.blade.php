@@ -20,6 +20,7 @@
             <div class="panel-body">
                 @include('pages.canbohoso.includes.form_hoso', [
                     'danhmucloi' => $danhmucloi,
+                    'canboLapbb' => $canboLapbb,
                 ])
             </div>
         </div>

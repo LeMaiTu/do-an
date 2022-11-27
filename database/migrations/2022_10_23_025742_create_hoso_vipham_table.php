@@ -22,15 +22,15 @@ class CreateHoSoViPhamTable extends Migration
             $table->string('ma_canbo_xuly_hoso');
             $table->integer('cmnd_nguoivipham');
             $table->date('ngaynhap_hoso');
-            $table->date('ngayxuly_hoso');
+            $table->date('ngayxuly_hoso')->nullable();
             $table->date('ngayhen_xuly');
-            $table->date('thoihan_xuly');
-            $table->integer('tinhtrang_hoso');
+            $table->integer('thoihan_xuly');
+            $table->integer('tinhtrang_hoso')->default(0);
             $table->text('mo_ta')->nullable();
             $table->timestamps();
-            $table->foreign('ma_canbo_lapbienban')->cascadeOnUpdate()->references('ma_canbo')->on('can_bo');
-            $table->foreign('ma_canbo_xuly_hoso')->cascadeOnUpdate()->references('ma_canbo')->on('can_bo');
-            $table->foreign('cmnd_nguoivipham')->cascadeOnUpdate()->references('cmnd')->on('nguoi_vipham');
+            $table->foreign('ma_canbo_lapbienban')->references('ma_canbo')->on('can_bo');
+            $table->foreign('ma_canbo_xuly_hoso')->references('ma_canbo')->on('can_bo');
+            $table->foreign('cmnd_nguoivipham')->references('cmnd')->on('nguoi_vipham');
         });
     }
 

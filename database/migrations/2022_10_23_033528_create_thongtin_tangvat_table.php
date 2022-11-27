@@ -17,18 +17,18 @@ class CreateThongtinTangvatTable extends Migration
             $table->string('ma_tangvat')->primary();
             $table->string('ten_tangvat');
             $table->string('ma_hoso');
-            $table->string('ma_canbo_nhan');
-            $table->string('ma_canbo_tra');
+            $table->string('ma_canbo_nhan')->nullable();
+            $table->string('ma_canbo_tra')->nullable();
             $table->date('ngay_tam_giu');
             $table->integer('thoigian_tamgiu');
-            $table->date('ngaytra_tangvat');
-            $table->string('hinhanh_ky_nhantra');
-            $table->integer('trang_thai');
+            $table->date('ngaytra_tangvat')->nullable();
+            $table->string('hinhanh_ky_nhantra')->nullable();
+            $table->integer('trang_thai')->default(0);
             $table->text('mota');
             $table->timestamps();
-            $table->foreign('ma_hoso')->cascadeOnUpdate()->references('ma_hoso')->on('hoso_vipham');
-            $table->foreign('ma_canbo_nhan')->cascadeOnUpdate()->references('ma_canbo')->on('can_bo');
-            $table->foreign('ma_canbo_tra')->cascadeOnUpdate()->references('ma_canbo')->on('can_bo');
+            $table->foreign('ma_hoso')->references('ma_hoso')->on('hoso_vipham');
+            $table->foreign('ma_canbo_nhan')->references('ma_canbo')->on('can_bo');
+            $table->foreign('ma_canbo_tra')->references('ma_canbo')->on('can_bo');
         });
     }
 

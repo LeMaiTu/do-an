@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\CanBo;
+use App\Models\ChitietHosoVipham;
 use App\Models\DanhmucLoivipham;
 use App\Models\HosoVipham;
+use App\Models\NguoiVipham;
+use App\Models\ThongTinTangVat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -16,13 +19,19 @@ class AdminController extends Controller
     public function __construct(
         CanBo $canbo,
         HosoVipham $hosoVipham,
-        DanhmucLoivipham $danhmucLoivipham
+        DanhmucLoivipham $danhmucLoivipham,
+        ChitietHosoVipham $chitietHosoVipham,
+        NguoiVipham $nguoiVipham,
+        ThongTinTangVat $thongTinTangVat
     )
     {
         $this->middleware('auth:admin');
         $this->canbo = $canbo;
         $this->hosoVipham = $hosoVipham;
         $this->danhmucLoivipham = $danhmucLoivipham;
+        $this->chitietHosoVipham = $chitietHosoVipham;
+        $this->nguoiVipham = $nguoiVipham;
+        $this->thongTinTangVat = $thongTinTangVat;
     }
 
     public function ruleThemCanBo()
@@ -238,6 +247,33 @@ class AdminController extends Controller
     public function danhsachHoso(){
         $hosoVipham = $this->hosoVipham->all();
         return view('pages.admin.danhsach_hoso', compact(['hosoVipham']));
+    }
+
+    public function chitietHoso($ma_hoso){
+
+        $hoso = $this->hosoVipham->where([
+            'ma_hoso' => $ma_hoso,
+        ])->firstOrFail();
+
+        $chitietHoso = $this->chitietHosoVipham->where([
+                'chitiet_hoso_vipham.ma_hoso' => $ma_hoso,
+            ])
+            ->select([
+                'chitiet_hoso_vipham.ma_chitiet_hoso_vipham',
+                'chitiet_hoso_vipham.ma_hoso',
+                'chitiet_hoso_vipham.ma_loi_vipham',
+                'chitiet_hoso_vipham.phat_hanhchinh',
+                'chitiet_hoso_vipham.mo_ta',
+                'danhmuc_loivipham.ten_loi',
+            ])
+            ->join('danhmuc_loivipham', 'chitiet_hoso_vipham.ma_loi_vipham', '=', 'danhmuc_loivipham.ma_loi')
+            ->get();
+
+        $danhsachTangvat = $this->thongTinTangVat->where([
+            'ma_hoso' => $ma_hoso,
+        ])->get();
+
+        return view('pages.admin.chitiet_hoso', compact(['hoso', 'chitietHoso', 'danhsachTangvat']));
     }
 
     public function danhmucLoi(){

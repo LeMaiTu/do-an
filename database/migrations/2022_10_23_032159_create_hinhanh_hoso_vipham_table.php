@@ -18,7 +18,7 @@ class CreateHinhanhHosoViphamTable extends Migration
             $table->string('ma_hoso_vipham');
             $table->integer('loai_hinhanh');
             $table->string('hinhanh');
-            $table->foreign('ma_hoso_vipham')->cascadeOnUpdate()->references('ma_hoso')->on('hoso_vipham');
+            $table->foreign('ma_hoso_vipham')->references('ma_hoso')->on('hoso_vipham');
             $table->timestamps();
         });
     }

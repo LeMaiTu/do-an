@@ -9,7 +9,7 @@
                 <div class="panel-heading">
                     Thông Tin Lỗi Vi Phạm
                 </div>
-                <table class="table table-striped text-center">
+                <table class="table  table-striped table-responsive table-hover text-center">
                     <thead>
                     <tr>
                         <th class="text-center">Mã Cán Bộ</th>
