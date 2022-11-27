@@ -5,12 +5,13 @@
 ## Giới Thiệu
 
 ## Build src
-1. `composer install`
-2. `cp .env.example .env`
-3. `php artisan key:generate`
-4. `php artisan migrate:fresh --seed`
-5. `php artisan serve`
-`
+- `composer install`
+- `composer update`
+- `cp .env.example .env`
+- `php artisan key:generate`
+- `php artisan migrate:fresh --seed`
+- `php artisan serve`
 
 ## Run npm
-`npm run watch`
+- `npm install`
+- `npm run watch`
