@@ -177,6 +177,7 @@ class AdminController extends Controller
         $canbo['ten_canbo'] = $data['ten_canbo'];
         $canbo['email'] = $data['email'];
         $canbo['account'] = $data['account'];
+        $canbo['cmnd'] = $data['cmnd'];
         $canbo['gioi_tinh'] = $data['gioi_tinh'];
         $canbo['chuc_vu'] = $data['chuc_vu'];
         $canbo['dia_chi'] = $data['dia_chi'];
