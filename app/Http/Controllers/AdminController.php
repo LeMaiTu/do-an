@@ -130,7 +130,12 @@ class AdminController extends Controller
         }
         $dataCreate['hinh_anh'] = $pathSave;
         $dataCreate['password'] = bcrypt($dataCreate['password']);
-        $this->canbo->create($dataCreate);
+        if ($dataCreate['role'] != 'cb_lapbienban') {
+            $canbo = $this->canbo->create($dataCreate);
+           $canbo->assignRole($dataCreate['role']);
+        } else {
+            $this->canbo->create($dataCreate);
+        }
         return redirect()->route('admin.them_canbo')->with('success', 'Thêm cán bộ thành công!');
     }
 

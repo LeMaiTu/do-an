@@ -7,7 +7,7 @@
         <div class="panel-body">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Thông Tin Lỗi Vi Phạm
+                    Thông Tin Cán Bộ
                 </div>
                 <table class="table  table-striped table-responsive table-hover text-center">
                     <thead>

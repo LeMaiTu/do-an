@@ -64,10 +64,10 @@
                     <select id="gioi_tinh" name="gioi_tinh"
                             class="form-control @error('role') is-invalid @enderror">
                         <option value="">Chọn giới tính</option>
-                        <option value="0" {{ old('gioi_tinh', $canbo->gioi_tinh) === 0 ? 'selected' : '' }}>
+                        <option value="0" {{ old('gioi_tinh', $canbo->gioi_tinh) == 0 ? 'selected' : '' }}>
                             Nữ
                         </option>
-                        <option value="1" {{ old('gioi_tinh', $canbo->gioi_tinh) === 1 ? 'selected' : '' }}>
+                        <option value="1" {{ old('gioi_tinh', $canbo->gioi_tinh) == 1 ? 'selected' : '' }}>
                             Nam
                         </option>
                     </select>
@@ -265,8 +265,8 @@
                     <select id="gioi_tinh" name="gioi_tinh"
                             class="form-control @error('role') is-invalid @enderror">
                         <option value="">Chọn giới tính</option>
-                        <option value="0" {{ old('gioi_tinh') === 0 ? 'selected' : '' }}>Nữ</option>
-                        <option value="1" {{ old('gioi_tinh') === 1 ? 'selected' : '' }}>Nam</option>
+                        <option value="0" {{ old('gioi_tinh') == 0 ? 'selected' : '' }}>Nữ</option>
+                        <option value="1" {{ old('gioi_tinh') == 1 ? 'selected' : '' }}>Nam</option>
                     </select>
                     @error('gioi_tinh')
                     <div class="alert alert-danger">{{ $message }}</div>

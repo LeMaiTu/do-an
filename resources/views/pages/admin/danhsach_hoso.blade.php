@@ -8,6 +8,9 @@
 {{--            <div class="btn btn-danger" style=" margin-bottom: 10px;">--}}
 {{--                Sao Chép Dữ Liệu--}}
 {{--            </div>--}}
+            <div class="panel-heading">
+                Danh Sách Hồ Sơ
+            </div>
             <div class="panel panel-default">
                 <div class="table-responsive table-scroll panel-body">
                     <table class="table table-striped table-hover text-center" style="width:100%; max-width: 100%">
