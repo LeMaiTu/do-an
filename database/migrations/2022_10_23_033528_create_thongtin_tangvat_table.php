@@ -24,7 +24,7 @@ class CreateThongtinTangvatTable extends Migration
             $table->date('ngaytra_tangvat')->nullable();
             $table->string('hinhanh_ky_nhantra')->nullable();
             $table->integer('trang_thai')->default(0);
-            $table->text('mota');
+            $table->text('mota')->nullable();
             $table->timestamps();
             $table->foreign('ma_hoso')->references('ma_hoso')->on('hoso_vipham');
             $table->foreign('ma_canbo_nhan')->references('ma_canbo')->on('can_bo');

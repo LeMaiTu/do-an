@@ -30,7 +30,7 @@ class CreateCanBoTable extends Migration
             $table->string('sdt');
             $table->string('don_vi');
             $table->string('hinh_anh');
-            $table->string('mo_ta');
+            $table->string('mo_ta')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

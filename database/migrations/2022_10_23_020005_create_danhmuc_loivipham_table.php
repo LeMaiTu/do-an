@@ -20,7 +20,7 @@ class CreateDanhmucLoiviphamTable extends Migration
             $table->string('chitiet_nghidinh');
             $table->string('loai_phuongtien');
             $table->string('muc_phat');
-            $table->text('mo_ta');
+            $table->text('mo_ta')->nullable();
             $table->timestamps();
         });
     }
