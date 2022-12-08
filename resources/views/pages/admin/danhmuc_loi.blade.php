@@ -5,6 +5,10 @@
 @section('content')
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
         <div class="panel panel-default">
+            @include('commons.breadcrumbs',["breadcrumbs"=>[
+            'Home' => 'admin.index',
+            'Danh mục lỗi' => null,
+            ]])
             <div class="panel-heading">
                 Thông Tin Lỗi Vi Phạm
             </div>
@@ -42,6 +46,9 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            {{ $danhmucLoi->links('vendor.pagination.default') }}
         </div>
         <a class="btn btn-link" href="{{ route('admin.them_loi') }}">
             Thêm Lỗi Vi Phạm

@@ -4,6 +4,11 @@
 
 @section('content')
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        @include('commons.breadcrumbs',["breadcrumbs"=>[
+       'Home' => 'cb_hoso.index',
+       'Tang vật' => 'cb_hoso.danhsach_tangvat',
+       'Chỉnh sửa tang vật ' . $tangvat->ma_tangvat => null,
+       ]])
         <div class="panel-body">
             <div class="panel panel-default">
                 @if (Session::has('success'))

@@ -229,7 +229,7 @@ class CanboHosoController extends Controller
 
     public function danhsachHoso()
     {
-        $hosoVipham = $this->hosoVipham->all();
+        $hosoVipham = $this->hosoVipham->paginate(10);
         return view('pages.canbohoso.danhsach_hoso', compact('hosoVipham'));
     }
 
@@ -262,7 +262,7 @@ class CanboHosoController extends Controller
 
     public function danhsachNguoiViPham()
     {
-        $danhsachNguoivipham = $this->nguoiVipham->all();
+        $danhsachNguoivipham = $this->nguoiVipham->paginate(10);
         return view('pages.canbohoso.danhsach_nguoi_vipham', compact(['danhsachNguoivipham']));
     }
 
@@ -376,7 +376,7 @@ class CanboHosoController extends Controller
 
     public function thongtinTangvat()
     {
-        $danhsachTangvat = $this->thongTinTangVat->all();
+        $danhsachTangvat = $this->thongTinTangVat->paginate(10);
         return view('pages.canbohoso.thongtin_tangvat', compact('danhsachTangvat'));
     }
 }

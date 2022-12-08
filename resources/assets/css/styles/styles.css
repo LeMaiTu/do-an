@@ -1416,4 +1416,16 @@ td {
     align-items: center;
 }
 
+.d-flex {
+    display: flex !important;
+}
+.justify-content-center {
+    justify-content: center;
+}
+
+.pagination {
+    margin: 0 !important;
+}
+
+
 

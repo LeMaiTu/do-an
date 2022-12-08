@@ -4,6 +4,10 @@
 
 @section('content')
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        @include('commons.breadcrumbs',["breadcrumbs"=>[
+       'Home' => 'cb_hoso.index',
+       'Tang vật' => null,
+       ]])
         <div class="panel-body">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -59,6 +63,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        {{ $danhsachTangvat->links('vendor.pagination.default') }}
     </div>
     </div><!--/.col-->
 @endsection
