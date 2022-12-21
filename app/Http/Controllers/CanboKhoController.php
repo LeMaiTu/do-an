@@ -129,7 +129,7 @@ class CanboKhoController extends Controller
 
     public function danhsachTangvat()
     {
-        $danhsachTangvat = $this->thongTinTangVat->where('trang_thai', '>', 0,)->get();
+        $danhsachTangvat = $this->thongTinTangVat->where('trang_thai', '>', 0,)->paginate(10);
         return view('pages.canbokho.danhsach_tangvat', compact(['danhsachTangvat']));
     }
 
@@ -137,7 +137,7 @@ class CanboKhoController extends Controller
     {
         $danhsachTangvat = $this->thongTinTangVat->where([
             'trang_thai' => 0,
-        ])->get();
+        ])->paginate(10);
         return view('pages.canbokho.nhan_tangvat', compact(['danhsachTangvat']));
     }
 
@@ -221,7 +221,7 @@ class CanboKhoController extends Controller
 
     public function danhsachHoso()
     {
-        $hosoVipham = $this->hosoVipham->all();
+        $hosoVipham = $this->hosoVipham->paginate(10);
         return view('pages.canbokho.danhsach_hoso', compact('hosoVipham'));
     }
 

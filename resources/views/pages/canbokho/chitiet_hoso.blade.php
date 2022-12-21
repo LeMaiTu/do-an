@@ -4,6 +4,11 @@
 
 @section('content')
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        @include('commons.breadcrumbs',["breadcrumbs"=>[
+       'Home' => 'cb_kho.index',
+       'Hồ sơ' => 'cb_kho.ho_so_vipham',
+       'Chi tiết hồ sơ ' . $hoso->ma_hoso => null
+       ]])
         <div class="panel-body">
             <div class="panel panel-default">
                 <div class="panel-heading">

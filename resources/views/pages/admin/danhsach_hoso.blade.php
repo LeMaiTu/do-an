@@ -4,6 +4,10 @@
 
 @section('content')
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        @include('commons.breadcrumbs',["breadcrumbs"=>[
+        'Home' => 'admin.index',
+        'Hồ sơ' => null,
+        ]])
         <div class="panel-body">
 {{--            <div class="btn btn-danger" style=" margin-bottom: 10px;">--}}
 {{--                Sao Chép Dữ Liệu--}}
@@ -68,6 +72,9 @@
                     </table>
                 </div>
             </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            {{ $hosoVipham->links('vendor.pagination.default') }}
         </div>
     </div>
 @endsection

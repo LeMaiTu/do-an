@@ -105,7 +105,7 @@ class AdminController extends Controller
     }
 
     public function danhSachCanBo(){
-        $danhsachCanbo = $this->canbo->all();
+        $danhsachCanbo = $this->canbo->paginate(10);
         return view('pages.admin.danhsach_canbo', compact(['danhsachCanbo']));
     }
 
@@ -251,7 +251,7 @@ class AdminController extends Controller
     }
 
     public function danhsachHoso(){
-        $hosoVipham = $this->hosoVipham->all();
+        $hosoVipham = $this->hosoVipham->paginate(10);
         return view('pages.admin.danhsach_hoso', compact(['hosoVipham']));
     }
 
@@ -283,7 +283,7 @@ class AdminController extends Controller
     }
 
     public function danhmucLoi(){
-        $danhmucLoi = $this->danhmucLoivipham->all();
+        $danhmucLoi = $this->danhmucLoivipham->paginate(10);
         return view('pages.admin.danhmuc_loi', compact(['danhmucLoi']));
     }
 }

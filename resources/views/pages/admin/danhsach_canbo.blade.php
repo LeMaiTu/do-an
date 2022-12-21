@@ -4,6 +4,10 @@
 
 @section('content')
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        @include('commons.breadcrumbs',["breadcrumbs"=>[
+        'Home' => 'admin.index',
+        'Cán bộ' => null,
+        ]])
         <div class="panel-body">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -59,6 +63,9 @@
                     @endforeach
                     </tbody>
                 </table>
+            </div>
+            <div class="d-flex justify-content-center">
+                {{ $danhsachCanbo->links('vendor.pagination.default') }}
             </div>
             <a class="btn btn-link" href="{{ route('admin.them_canbo') }}">
                 Thêm Cán Bộ
