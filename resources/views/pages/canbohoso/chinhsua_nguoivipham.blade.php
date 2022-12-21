@@ -6,8 +6,8 @@
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
         @include('commons.breadcrumbs',["breadcrumbs"=>[
        'Home' => 'cb_hoso.index',
-       'Người vi phạm' => 'cb_hoso.danhsach_nguoivipham',
-       'Chỉnh sửa người vi phạm ' . $nguoivipham->cmnd,
+       'Người vi phạm' => 'cb_hoso.nguoi_vipham',
+       'Chỉnh sửa người vi phạm ' . $nguoivipham->cmnd => null,
        ]])
         <div class="panel-body">
             <div class="panel panel-default">
@@ -21,7 +21,7 @@
                     </div>
                 @endif
                 <div class="panel-heading text-bold">
-                    Thông tin Người Vi Phạm {{  $nguoivipham->ho_ten }}
+                    Thông tin Người Vi Phạm: {{  $nguoivipham->cmnd }}
                 </div>
                 <div class="panel-body">
                     @include('pages.canbohoso.includes.form_nguoivipham',[
