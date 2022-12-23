@@ -33,7 +33,7 @@
                         <tbody>
                         @if( count($hosoVipham) <= 0)
                             <tr>
-                                <td colspan="14">
+                                <td colspan="14" style="height: 100px">
                                     Hồ sơ trống!
                                 </td>
                             </tr>

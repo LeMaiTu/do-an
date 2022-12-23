@@ -51,7 +51,12 @@
                                 <tr>
                                     <td>{{ $tangvat->ma_tangvat }}</td>
                                     <td>{{ $tangvat->ten_tangvat }}</td>
-                                    <td>{{ $tangvat->ma_hoso }}</td>
+                                    <td>
+                                        <a
+                                            href="{{ route('cb_kho.chitiet_hoso', $tangvat->ma_hoso) }}">
+                                            {{ $tangvat->ma_hoso }}
+                                        </a>
+                                    </td>
                                     <td>{{ $tangvat->ma_canbo_nhan }}</td>
                                     <td>{{ $tangvat->ma_canbo_tra }}</td>
                                     <td>{{ date('d/m/Y', strtotime($tangvat->ngay_tam_giu)) }}</td>

@@ -6,7 +6,7 @@
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
         @include('commons.breadcrumbs',["breadcrumbs"=>[
        'Home' => 'cb_kho.index',
-       'Hồ sơ' => 'cb_kho.ho_so_vipham',
+       'Hồ sơ' => 'cb_kho.danhsach_hoso',
        'Chi tiết hồ sơ ' . $hoso->ma_hoso => null
        ]])
         <div class="panel-body">
@@ -85,6 +85,49 @@
                         <div class="row col-md-6">
                             <p class="col-md-4 text-right text-bold">Mô Tả:</p>
                             <p class="col-md-8">{{ $hoso->mota }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Thông Tin Người Vi Phạm:  {{ $nguoiVipham->cmnd }}
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="row col-md-6">
+                            <p class="col-md-4 text-right text-bold">Chứng Minh Thư:</p>
+                            <p class="col-md-8">{{ $nguoiVipham->cmnd }}</p>
+                        </div>
+                        <div class="row col-md-6">
+                            <p class="col-md-4 text-right text-bold">Họ Tên:</p>
+                            <p class="col-md-8">{{ $nguoiVipham->ho_ten }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="row col-md-6">
+                            <p class="col-md-4 text-right text-bold">Ngày sinh:</p>
+                            <p class="col-md-8">{{ date('d/m/Y', strtotime($nguoiVipham->ngay_sinh)) }}</p>
+                        </div>
+                        <div class="row col-md-6">
+                            <p class="col-md-4 text-right text-bold">Giới Tính:</p>
+                            <p class="col-md-8">{{ $nguoiVipham->gioi_tinh == 0 ? 'Nữ' : 'Nam' }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="row col-md-6">
+                            <p class="col-md-4 text-right text-bold">Địa Chỉ:</p>
+                            <p class="col-md-8">{{ $nguoiVipham->dia_chi }}</p>
+                        </div>
+                        <div class="row col-md-6">
+                            <p class="col-md-4 text-right text-bold">Số điện thoại:</p>
+                            <p class="col-md-8">{{ $nguoiVipham->sdt }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="row col-md-6">
+                            <p class="col-md-4 text-right text-bold">Email:</p>
+                            <p class="col-md-8">{{ $nguoiVipham->email }}</p>
                         </div>
                     </div>
                 </div>

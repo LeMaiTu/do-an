@@ -39,6 +39,6 @@
     <script src="{{ asset('js/html5shiv.min.js') }}"></script>
     <script src=" https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap.min.js"></script>
-    @yield('scripts')
+    @stack('scripts')
 </body>
 </html>

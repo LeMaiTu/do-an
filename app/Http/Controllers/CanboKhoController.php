@@ -129,15 +129,24 @@ class CanboKhoController extends Controller
 
     public function danhsachTangvat()
     {
-        $danhsachTangvat = $this->thongTinTangVat->where('trang_thai', '>', 0,)->paginate(10);
+        $danhsachTangvat = $this->thongTinTangVat
+            ->select('thongtin_tangvat.*', 'hoso_vipham.tinhtrang_hoso')
+            ->where('trang_thai', '>', 0)
+            ->join('hoso_vipham', 'hoso_vipham.ma_hoso', 'thongtin_tangvat.ma_hoso')
+            ->where('hoso_vipham.tinhtrang_hoso', '>', 0)->paginate(10);
         return view('pages.canbokho.danhsach_tangvat', compact(['danhsachTangvat']));
     }
 
     public function nhanTangvat()
     {
-        $danhsachTangvat = $this->thongTinTangVat->where([
-            'trang_thai' => 0,
-        ])->paginate(10);
+        $danhsachTangvat = $this->thongTinTangVat
+            ->select('thongtin_tangvat.*', 'hoso_vipham.tinhtrang_hoso')
+            ->where([
+                'trang_thai' => 0,
+            ])->join('hoso_vipham', 'hoso_vipham.ma_hoso', 'thongtin_tangvat.ma_hoso')
+            ->where('hoso_vipham.tinhtrang_hoso', '>', 0)
+            ->paginate(10);
+
         return view('pages.canbokho.nhan_tangvat', compact(['danhsachTangvat']));
     }
 
@@ -148,8 +157,9 @@ class CanboKhoController extends Controller
                 'trang_thai' => 0,
             ])->update([
                 'trang_thai' => 1,
+                'ma_canbo_nhan' => auth('admin')->user()->ma_canbo,
             ]);
-            return redirect()->route('cb_kho.nhan_tangvat')->with('error', 'Đã xác nhận!');
+            return redirect()->route('cb_kho.nhan_tangvat')->with('success', 'Đã xác nhận!');
         } catch (\Exception $e) {
             return redirect()->route('cb_kho.nhan_tangvat')->with('error', 'Chưa xác nhận. Đã xảy lỗi hệ thống!');
         }
@@ -162,8 +172,9 @@ class CanboKhoController extends Controller
                 'trang_thai' => 1,
             ])->update([
                 'trang_thai' => 2,
+                'ma_canbo_tra' => auth('admin')->user()->ma_canbo,
             ]);
-            return redirect()->route('cb_kho.danhsach_tangvat')->with('error', 'Đã xác nhận!');
+            return redirect()->route('cb_kho.danhsach_tangvat')->with('success', 'Đã xác nhận!');
         } catch (\Exception $e) {
             return redirect()->route('cb_kho.danhsach_tangvat')->with('error', 'Chưa xác nhận. Đã xảy lỗi hệ thống!');
         }
@@ -231,6 +242,10 @@ class CanboKhoController extends Controller
             'ma_hoso' => $ma_hoso,
         ])->firstOrFail();
 
+        $nguoiVipham = $this->nguoiVipham->where([
+            'cmnd' => $hoso->cmnd_nguoivipham,
+        ])->first();
+
         $chitietHoso = $this->chitietHosoVipham->where([
             'chitiet_hoso_vipham.ma_hoso' => $ma_hoso,
         ])
@@ -249,6 +264,6 @@ class CanboKhoController extends Controller
             'ma_hoso' => $ma_hoso,
         ])->get();
 
-        return view('pages.canbokho.chitiet_hoso', compact(['hoso', 'chitietHoso', 'danhsachTangvat']));
+        return view('pages.canbokho.chitiet_hoso', compact(['hoso', 'chitietHoso', 'danhsachTangvat', 'nguoiVipham']));
     }
 }

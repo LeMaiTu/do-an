@@ -7,7 +7,7 @@
         @include('commons.breadcrumbs',["breadcrumbs"=>[
        'Home' => 'cb_hoso.index',
        'Hồ sơ' => 'cb_hoso.ho_so_vipham',
-       'Thêm mới' => null
+       'Chỉnh sửa hồ sơ vi phạm: ' . $hoso->ma_hoso => null
        ]])
         <div class="panel panel-default">
             @if (Session::has('success'))
@@ -20,12 +20,16 @@
                 </div>
             @endif
             <div class="panel-heading text-bold">
-                Tạo Hồ Sơ Vi Phạm
+                Chỉnh Sửa Hồ Sơ Vi Phạm: {{ $hoso->ma_hoso }}
             </div>
             <div class="panel-body">
                 @include('pages.canbohoso.includes.form_hoso', [
                     'danhmucloi' => $danhmucloi,
                     'canboLapbb' => $canboLapbb,
+                    'hoso' => $hoso,
+                    'nguoivipham' => $nguoivipham,
+                    'danhsachTangvat' => $danhsachTangvat,
+                    'chitietHoso' => $chitietHoso,
                 ])
             </div>
         </div>

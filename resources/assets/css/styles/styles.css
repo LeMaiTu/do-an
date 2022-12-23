@@ -1426,6 +1426,15 @@ td {
 .pagination {
     margin: 0 !important;
 }
+.my-2{
+    margin-bottom: 2px !important;
+    margin-top: 2px !important;
+}
+.mx-2{
+    margin-right: 2px !important;
+    margin-left: 2px !important;
+}
+
 
 
 

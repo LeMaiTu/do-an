@@ -188,7 +188,7 @@ return [
         'tangvat' => 'tang vật',
         'tangvat.*.ma_tangvat' => 'mã tang vật',
         'tangvat.*.ten_tangvat' => 'tên tang vật',
-        'tangvat.*.ngay_tamgiu' => 'ngày tạm giữ',
+        'tangvat.*.ngay_tam_giu' => 'ngày tạm giữ',
         'tangvat.*.thoigian_tamgiu' => 'thời gian tạm giữ',
         'tangvat.*.mota' => 'mô tả',
 

@@ -30,6 +30,6 @@
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
     <script src="{{ asset('js/html5shiv.min.js') }}"></script>
-    @yield('scripts')
+    @stack('scripts')
 </body>
 </html>

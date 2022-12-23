@@ -200,6 +200,26 @@ class AdminController extends Controller
         return redirect()->route('admin.chinhsua_canbo', $canbo->ma_canbo)->with('success', 'Cập nhật cán bộ thành công!');
     }
 
+    public function xoaCanbo($ma_cb) {
+        try {
+            $canbo = $this->canbo->where(['ma_canbo' => $ma_cb])->firstOrFail();
+            $hoso = $this->hosoVipham
+                ->where('ma_canbo_lapbienban', $ma_cb)
+                ->orWhere('ma_canbo_xuly_hoso', $ma_cb)
+                ->get();
+            if ($hoso->count() > 0) return redirect()->route('admin.danhsach_canbo')->with('error', 'Không thể xóa cán bộ náy!');
+            $old_path = $canbo->hinh_anh;
+            if (Storage::disk('public')->exists($old_path)) {
+                Storage::disk('public')->delete($old_path);
+            }
+            $this->canbo->where(['ma_canbo' => $ma_cb])->delete();
+            return redirect()->route('admin.danhsach_canbo')->with('success', 'Xóa cán bộ thành công!');
+        } catch (\Exception $e) {
+            Log::info($e->getMessage());
+            return redirect()->route('admin.danhsach_canbo')->with('error', 'Xóa cán bộ thất bại!');
+        }
+    }
+
     public function themLoivipham()
     {
         return view('pages.admin.them_loivipham');

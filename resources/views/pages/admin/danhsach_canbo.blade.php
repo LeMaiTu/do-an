@@ -10,6 +10,15 @@
         ]])
         <div class="panel-body">
             <div class="panel panel-default">
+                @if (Session::has('success'))
+                    <div class="alert alert-success">
+                        {!! \Session::get('success') !!}
+                    </div>
+                @elseif((Session::has('error')))
+                    <div class="alert alert-danger">
+                        {!! \Session::get('error') !!}
+                    </div>
+                @endif
                 <div class="panel-heading">
                     Thông Tin Cán Bộ
                 </div>
@@ -58,6 +67,12 @@
                                    href="{{ route('admin.chinhsua_canbo', $canbo->ma_canbo) }}">
                                     Chỉnh sửa
                                 </a>
+                                @if($canbo->role != 'admin')
+                                    <a type="button" class="btn btn-danger"
+                                       href="{{ route('admin.xoa_canbo', $canbo->ma_canbo) }}">
+                                        Xóa
+                                    </a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach

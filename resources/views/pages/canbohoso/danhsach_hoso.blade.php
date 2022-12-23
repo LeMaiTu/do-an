@@ -10,6 +10,15 @@
         ]])
         <div class="panel-body">
             <div class="panel panel-default">
+                @if (Session::has('success'))
+                    <div class="alert alert-success">
+                        {!! \Session::get('success') !!}
+                    </div>
+                @elseif((Session::has('error')))
+                    <div class="alert alert-danger">
+                        {!! \Session::get('error') !!}
+                    </div>
+                @endif
                 <div class="table-responsive table-scroll panel-body">
                     <table class="table table-striped table-hover text-center" style="width:100%; max-width: 100%">
                         <thead>
@@ -33,7 +42,7 @@
                         <tbody>
                         @if( count($hosoVipham) <= 0)
                             <tr>
-                                <td colspan="14">
+                                <td colspan="14" style="height: 100px">
                                     Hồ sơ trống!
                                 </td>
                             </tr>
@@ -54,9 +63,28 @@
                                     <td style="width: 100px">{{ config('constants.hoso_vipham.trang_thai')[$hoso->tinhtrang_hoso] }}</td>
                                     <td style="width: 150px">{{ $hoso->mota }}</td>
                                     <td style="width: 100px">
-                                        <a
+                                        @if($hoso->tinhtrang_hoso == 0)
+                                            <a class="btn btn-primary my-2"
+                                               href="{{ route('cb_hoso.chinhsua_hoso_vipham', $hoso->ma_hoso) }}">
+                                                Sửa
+                                            </a>
+                                            <a class="btn btn-danger my-2"
+                                               href="{{ route('cb_hoso.xoa_hoso', $hoso->ma_hoso) }}">
+                                                Xóa
+                                            </a>
+                                            <a class="btn btn-success my-2"
+                                               href="{{ route('cb_hoso.capnhat_trangthai', $hoso->ma_hoso) }}">
+                                                Xử lý
+                                            </a>
+                                        @elseif($hoso->tinhtrang_hoso == 1 && $hoso->tangvat_chuaxuly == 0)
+                                            <a class="btn btn-danger my-2"
+                                               href="{{ route('cb_hoso.capnhat_trangthai', $hoso->ma_hoso) }}">
+                                                Hoàn tất
+                                            </a>
+                                        @endif
+                                        <a class="btn my-2"
                                             href="{{ route('cb_hoso.chitiet_hoso', $hoso->ma_hoso) }}">
-                                            Xem chi tiết
+                                                Chi tiết
                                         </a>
                                     </td>
                                 </tr>

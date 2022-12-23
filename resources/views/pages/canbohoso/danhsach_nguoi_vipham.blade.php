@@ -30,7 +30,7 @@
                         <tbody>
                         @if( count($danhsachNguoivipham) <= 0)
                         <tr>
-                            <td colspan="8">
+                            <td colspan="8" style="height: 100px">
                                 Không có dữ liệu!
                             </td>
                         </tr>
