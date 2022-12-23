@@ -233,7 +233,7 @@
                                             <td>{{ date('d/m/Y', strtotime($tangvat->ngay_tam_giu)) }}</td>
                                             <td>{{ $tangvat->thoigian_tamgiu }} ngày</td>
                                             <td>{{ $tangvat->ngaytra_tangvat ? date('d/m/Y', strtotime($tangvat->ngaytra_tangvat)) : null }}</td>
-                                            <td>{{ $tangvat->trang_thai }}</td>
+                                            <td>{{ config('constants.tang_vat.trang_thai')[$tangvat->trang_thai] }}</td>
                                             <td>{{ $tangvat->mota }}</td>
                                         </tr>
                                     @endforeach
