@@ -63,15 +63,11 @@
                             <td>{{ $canbo->sdt }}</td>
                             <td>{{ $canbo->mo_ta }}</td>
                             <td>
-                                <a type="button" class="btn btn-primary btn-edit"
-                                   href="{{ route('admin.chinhsua_canbo', $canbo->ma_canbo) }}">
-                                    Chỉnh sửa
-                                </a>
+                                <a style="width: 80px" type="button" class="btn btn-primary my-2"
+                                   href="{{ route('admin.chinhsua_canbo', $canbo->ma_canbo) }}">Chỉnh sửa</a>
                                 @if($canbo->role != 'admin')
-                                    <a type="button" class="btn btn-danger"
-                                       href="{{ route('admin.xoa_canbo', $canbo->ma_canbo) }}">
-                                        Xóa
-                                    </a>
+                                    <a style="width: 80px" type="button" class="btn btn-danger my-2"
+                                       href="{{ route('admin.xoa_canbo', $canbo->ma_canbo) }}">Xóa</a>
                                 @endif
                             </td>
                         </tr>

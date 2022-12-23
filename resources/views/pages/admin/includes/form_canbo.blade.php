@@ -32,7 +32,7 @@
             <div class="form-group">
                 <label class="col-md-2 text-left control-label" for="role">Loại cán bộ</label>
                 <div class="col-md-10">
-                    <select id="role" name="role" class="form-control @error('role') is-invalid @enderror">
+                    <select id="role" name="role" class="form-control @error('role') is-invalid @enderror" disabled>
                         <option value="">Chọn loại cán bộ</option>
                         @foreach(config('constants.loaicanbo') as $role)
                             <option

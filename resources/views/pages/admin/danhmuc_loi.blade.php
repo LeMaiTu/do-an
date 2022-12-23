@@ -36,7 +36,7 @@
                             <td>{{ $loi->muc_phat }}</td>
                             <td>{{ $loi->mo_ta }}</td>
                             <td>
-                                <a type="button" class="btn btn-primary btn-edit"
+                                <a type="button" class="btn btn-primary"
                                    href="{{ route('admin.chinhsua_loi', $loi->ma_loi) }}">
                                     Chỉnh sửa
                                 </a>

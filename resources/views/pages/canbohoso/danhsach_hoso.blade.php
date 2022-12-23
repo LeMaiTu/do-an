@@ -64,20 +64,20 @@
                                     <td style="width: 150px">{{ $hoso->mota }}</td>
                                     <td style="width: 100px">
                                         @if($hoso->tinhtrang_hoso == 0)
-                                            <a class="btn btn-primary my-2"
+                                            <a style="width: 80px" class="btn btn-primary my-2"
                                                href="{{ route('cb_hoso.chinhsua_hoso_vipham', $hoso->ma_hoso) }}">
                                                 Sửa
                                             </a>
-                                            <a class="btn btn-danger my-2"
+                                            <a style="width: 80px" class="btn btn-danger my-2"
                                                href="{{ route('cb_hoso.xoa_hoso', $hoso->ma_hoso) }}">
                                                 Xóa
                                             </a>
-                                            <a class="btn btn-success my-2"
+                                            <a style="width: 80px" class="btn btn-success my-2"
                                                href="{{ route('cb_hoso.capnhat_trangthai', $hoso->ma_hoso) }}">
                                                 Xử lý
                                             </a>
                                         @elseif($hoso->tinhtrang_hoso == 1 && $hoso->tangvat_chuaxuly == 0)
-                                            <a class="btn btn-danger my-2"
+                                            <a style="width: 80px" class="btn btn-danger my-2"
                                                href="{{ route('cb_hoso.capnhat_trangthai', $hoso->ma_hoso) }}">
                                                 Hoàn tất
                                             </a>

@@ -66,11 +66,11 @@
                                     <td>{{ $tangvat->mota }}</td>
                                     <td>
                                         <div style="display: flex; flex-direction: column;">
-                                            <a type="button" class="btn btn-danger btn-edit"
+                                            <a style="width: 80px" type="button" class="btn btn-danger my-2"
                                                href="{{ route('cb_kho.chinhsua_tangvat', $tangvat->ma_tangvat) }}">
                                                 Chỉnh sửa
                                             </a>
-                                            <a type="button" class="btn btn-primary btn-edit"
+                                            <a style="width: 80px" type="button" class="btn btn-primary my-2"
                                                href="{{ route('cb_kho.nhan_tangvat_action', $tangvat->ma_tangvat) }}">
                                                 Nhận
                                             </a>
