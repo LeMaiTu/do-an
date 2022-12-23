@@ -159,26 +159,22 @@
                                             <p class="col-md-6">{{ $hoso->diadiem_lapbienban }}</p>
                                         </div>
                                         <div class="row col-md-6">
-                                            <p class="col-md-6 text-right text-bold">Mã CB Lập BB:</p>
-                                            <p class="col-md-6">{{ $hoso->ma_canbo_lapbienban }}</p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="row col-md-6">
                                             <p class="col-md-6 text-right text-bold">Ngày Hẹn Xử Lý:</p>
                                             <p class="col-md-6">{{ date('d/m/Y', strtotime($hoso->ngayhen_xuly)) }}</p>
                                         </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="row col-md-6">
                                             <p class="col-md-6 text-right text-bold">Thời Hạn Xử Lý:</p>
                                             <p class="col-md-6">{{ $hoso->thoihan_xuly }} ngày</p>
                                         </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="row col-md-6">
                                             <p class="col-md-6 text-right text-bold">Tình Trạng:</p>
                                             <p
                                                 class="col-md-6">{{ config('constants.hoso_vipham.trang_thai')[$hoso->tinhtrang_hoso] }}</p>
                                         </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="row col-md-6">
                                             <p class="col-md-6 text-right text-bold">Mô Tả:</p>
                                             <p class="col-md-6">{{ $hoso->mota }}</p>
@@ -221,8 +217,6 @@
                                         <th class="text-center">Mã Tang Vật</th>
                                         <th class="text-center">Tên</th>
                                         <th class="text-center">Mã Hồ Sơ</th>
-                                        <th class="text-center">Mã CB Nhận</th>
-                                        <th class="text-center">Mã CB Trả</th>
                                         <th class="text-center">Ngày giữ</th>
                                         <th class="text-center">Thời gian giữ</th>
                                         <th class="text-center">Ngày trả</th>
@@ -236,8 +230,6 @@
                                             <td>{{ $tangvat->ma_tangvat }}</td>
                                             <td>{{ $tangvat->ten_tangvat }}</td>
                                             <td>{{ $tangvat->ma_hoso }}</td>
-                                            <td>{{ $tangvat->ma_canbo_nhan }}</td>
-                                            <td>{{ $tangvat->ma_canbo_tra }}</td>
                                             <td>{{ date('d/m/Y', strtotime($tangvat->ngay_tam_giu)) }}</td>
                                             <td>{{ $tangvat->thoigian_tamgiu }} ngày</td>
                                             <td>{{ $tangvat->ngaytra_tangvat ? date('d/m/Y', strtotime($tangvat->ngaytra_tangvat)) : null }}</td>
